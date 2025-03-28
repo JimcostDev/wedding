@@ -36,8 +36,8 @@ export default function Countdown({ weddingDate }) {
   return (
     <section className="py-8 md:py-16 bg-gradient-to-b from-white to-stone-50">
       <div className="max-w-4xl mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-serif text-center text-slate-800 mb-8">
-          <span class="bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent">
+        <h2 className="text-3xl md:text-4xl font-serif text-center text-slate-800 mb-8">
+          <span className="bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent">
             ¡Faltan!
           </span>
         </h2>
