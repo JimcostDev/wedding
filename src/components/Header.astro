@@ -1,0 +1,56 @@
+---
+// Header.astro
+---
+
+<header class="relative h-screen flex items-center justify-center">
+	{/* Imagen de fondo con overlay gradiente */}
+	<div class="absolute inset-0 z-0">
+	  <img 
+		src="/imgs/boda.jpg" 
+		alt="Foto boda" 
+		class="w-full h-full object-cover object-center"
+		loading="eager"
+		decoding="async"
+	  />
+	  {/* Overlay con gradiente mejorado */}
+	  <div class="absolute inset-0 bg-gradient-to-b from-gray-900/40 via-gray-900/20 to-gray-900/40"></div>
+	</div>
+  
+	{/* Contenido del header */}
+	<div class="text-center text-white relative z-10 px-4 space-y-6 md:space-y-8">
+	  <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif tracking-wide animate-fade-in">
+		Paula & Ronaldo
+	  </h1>
+	  
+	  <div class="space-y-2 md:space-y-4">
+		<p class="text-xl md:text-3xl lg:text-4xl font-light opacity-95">
+		  ¡Nos Casamos!
+		</p>
+		<div class="text-lg md:text-2xl lg:text-3xl font-medium bg-gray-100/10 backdrop-blur-sm rounded-lg p-4 mx-auto w-fit border border-gray-100/30">
+		  17 de Agosto de 2025
+		</div>
+	  </div>
+  
+	  {/* Indicador de scroll */}
+	  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+		<div class="w-6 h-10 sm:w-8 sm:h-14 rounded-2xl sm:rounded-3xl border-2 sm:border-4 border-gray-100/50"></div>
+	  </div>
+	</div>
+  </header>
+  
+  <style>
+	/* Animación optimizada */
+	@keyframes fade-in {
+	  from { 
+		opacity: 0;
+		transform: translateY(1rem);
+	  }
+	  to { 
+		opacity: 1;
+		transform: translateY(0);
+	  }
+	}
+	.animate-fade-in {
+	  animation: fade-in 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+	}
+  </style>

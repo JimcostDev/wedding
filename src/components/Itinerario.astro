@@ -1,0 +1,55 @@
+---
+// components/Itinerario.astro
+const eventos = [
+  { hora: "16:30", titulo: "Invitados" },
+  { hora: "17:00", titulo: "Ceremonia" },
+  { hora: "18:00", titulo: "Cóctel" },
+  { hora: "20:00", titulo: "Cena" },
+  { hora: "22:00", titulo: "Fiesta" }
+];
+---
+
+<section class="py-12 md:py-16 bg-slate-50">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-serif text-center text-slate-800 mb-8">
+      <span class="bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent">
+        Itinerario
+      </span>
+    </h2>
+
+    <div class="relative grid gap-8 md:grid-cols-5 md:gap-0">
+      {/* Línea horizontal decorativa */}
+      <div class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-100 to-amber-100 via-amber-400"></div>
+
+      {eventos.map((evento, index) => (
+        <div class="group relative flex flex-col items-center">
+          {/* Círculo decorativo */}
+          <div class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-amber-500 rounded-full mb-4 z-10
+            transition-transform duration-300 group-hover:scale-110">
+            <span class="text-white font-medium text-sm md:text-base">
+              {index + 1}
+            </span>
+          </div>
+
+          {/* Tarjeta del evento */}
+          <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 w-full max-w-xs
+            transform transition-all duration-300 hover:-translate-y-2 group-hover:shadow-xl">
+            <div class="text-center space-y-3">
+              <div class="text-2xl font-bold text-amber-600 font-mono">
+                {evento.hora}
+              </div>
+              <h3 class="text-lg font-medium text-slate-700">
+                {evento.titulo}
+              </h3>
+            </div>
+          </div>
+
+          {/* Línea de tiempo móvil */}
+          {index < eventos.length - 1 && (
+            <div class="md:hidden h-8 w-0.5 bg-amber-200 my-4"></div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

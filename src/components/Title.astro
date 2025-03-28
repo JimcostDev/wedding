@@ -1,0 +1,12 @@
+---
+const { tag = 'h2' } = Astro.props;
+const Tag = tag;
+const classes = tag === 'h3'
+  ? 'text-2xl md:text-3xl font-serif text-center text-slate-800 mb-8' // Tamaño para h3
+  : 'text-3xl md:text-4xl font-serif text-center text-slate-800 mb-8'; // Tamaño para h2
+---
+<Tag class={classes}>
+  <span class="bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text text-transparent">
+    <slot />
+  </span>
+</Tag>

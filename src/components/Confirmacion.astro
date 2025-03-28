@@ -1,0 +1,103 @@
+---
+// components/ConfirmacionRegalos.astro
+const formularioUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeWJJdj1HpJEBYtkPW618ULOP7FLtO4_GnZ-rNaZlEarWWbyA/viewform?usp=header";
+const bizumRonaldo = "624499125";
+const bizumPaula = "644774435";
+const ibanEjemplo = "ES76 2100 0418 4502 0005 1337"; 
+import Title from "./Title.astro";
+---
+
+<section class="py-12 md:py-16 bg-slate-50">
+  <div class="max-w-4xl mx-auto px-4">
+    <!-- Confirmación de Asistencia -->
+    <div class="text-center mb-16">
+      <Title>Confirma tu Asistencia</Title>
+      <a
+        href={formularioUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-gradient-to-r from-amber-500 to-amber-400 text-white px-8 py-4 rounded-full hover:from-amber-600 hover:to-amber-500 transition-all duration-300 text-xl md:text-2xl font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
+      >
+        🎉 Confirmar Asistencia
+      </a>
+      <p class="mt-4 text-slate-600 text-sm md:text-base italic">
+        Por favor, confirma antes del 1 de Agosto
+      </p>
+    </div>
+
+    <!-- Regalos -->
+    <div class="bg-white rounded-2xl shadow-md p-8 md:p-12 border border-slate-200">
+      <Title tag="h3" class="mb-8">Regalo de Bodas</Title>
+      
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+        <!-- Bizum -->
+        <div class="text-center p-6 rounded-xl bg-slate-50">
+          <div class="mb-4">
+            <svg class="mx-auto h-12 w-12 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold text-slate-800 mb-4">Bizum</h4>
+          <div class="space-y-4">
+            <div>
+              <p class="text-slate-600 mb-2">Para Ronaldo</p>
+              <button 
+                class="w-full bg-white border-2 border-amber-100 text-slate-800 px-4 py-3 rounded-lg hover:bg-amber-50 transition-colors copy-btn font-mono tracking-wide shadow-sm"
+                data-clipboard-text={bizumRonaldo}
+              >
+                {bizumRonaldo}
+              </button>
+            </div>
+            <div>
+              <p class="text-slate-600 mb-2">Para Paula</p>
+              <button 
+                class="w-full bg-white border-2 border-amber-100 text-slate-800 px-4 py-3 rounded-lg hover:bg-amber-50 transition-colors copy-btn font-mono tracking-wide shadow-sm"
+                data-clipboard-text={bizumPaula}
+              >
+                {bizumPaula}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- IBAN -->
+        <div class="text-center p-6 rounded-xl bg-slate-50">
+          <div class="mb-4">
+            <svg class="mx-auto h-12 w-12 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold text-slate-800 mb-4">Transferencia Bancaria</h4>
+          <div>
+            <button 
+              class="w-full bg-white border-2 border-amber-100 text-slate-800 px-4 py-3 rounded-lg hover:bg-amber-50 transition-colors copy-btn font-mono tracking-wide shadow-sm"
+              data-clipboard-text={ibanEjemplo}
+            >
+              {ibanEjemplo}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script para copiar -->
+  <script is:inline>
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(btn.dataset.clipboardText);
+          const originalText = btn.textContent;
+          btn.textContent = '¡Copiado! 📋';
+          btn.classList.add('bg-amber-100', 'border-amber-200');
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.classList.remove('bg-amber-100', 'border-amber-200');
+          }, 1500);
+        } catch (err) {
+          alert('Error al copiar, por favor selecciona manualmente');
+        }
+      });
+    });
+  </script>
+</section>
