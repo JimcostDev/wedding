@@ -1,5 +1,5 @@
 {
-  "name": "wedding",
+  "name": "astro-template",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,14 +9,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.2.2",
-    "@astrojs/vercel": "^8.0.4",
-    "@tailwindcss/vite": "^4.0.17",
-    "@types/react": "^19.0.12",
-    "@types/react-dom": "^19.0.4",
-    "astro": "^5.5.5",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tailwindcss": "^4.0.17"
+    "@astrojs/react": "^4.4.0",
+    "@astrojs/vercel": "^8.2.10",
+    "@tailwindcss/vite": "^4.1.10",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "astro": "^5.14.7",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.10"
   }
 }

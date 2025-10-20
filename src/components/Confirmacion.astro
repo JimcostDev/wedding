@@ -1,99 +1,168 @@
 ---
-// components/ConfirmacionRegalos.astro
+// RSVP.astro
+import Title from "./Title.astro";
+
 const formularioUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeWJJdj1HpJEBYtkPW618ULOP7FLtO4_GnZ-rNaZlEarWWbyA/viewform?usp=header";
 const bizumRonaldo = "624499125";
 const bizumPaula = "644774435";
-const ibanEjemplo = "ES76 2100 0418 4502 0005 1337"; 
-import Title from "./Title.astro";
+const ibanEjemplo = "ES87 2100 0792 6002 0013 6341";
 ---
 
-<section class="py-12 md:py-16 bg-slate-50">
-  <div class="max-w-4xl mx-auto px-4">
-    <!-- Confirmación de Asistencia -->
-    <div class="text-center mb-16">
-      <Title>Confirma tu Asistencia</Title>
-      <a
-        href={formularioUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-block bg-gradient-to-r from-amber-500 to-amber-400 text-white px-8 py-4 rounded-full hover:from-amber-600 hover:to-amber-500 transition-all duration-300 text-xl md:text-2xl font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
-      >
-        🎉 Confirmar Asistencia
-      </a>
-      <p class="mt-4 text-slate-600 text-sm md:text-base italic">
-        Por favor, confirma antes del 1 de Agosto
-      </p>
+<section class="py-16 md:py-24 bg-linear-to-b from-white to-rose-50/20">
+  <div class="max-w-6xl mx-auto px-4">
+    
+    {/* ===== CONFIRMACIÓN DE ASISTENCIA ===== */}
+    <div class="mb-20 md:mb-28">
+      <div class="text-center">
+        <Title>Confirma tu Asistencia</Title>
+        <p class="text-gray-600 text-base md:text-lg mt-4 mb-8">
+          Nos encantaría contar contigo en nuestro gran día
+        </p>
+        <a
+          href={formularioUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-linear-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white px-8 md:px-12 py-3 md:py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-semibold text-lg md:text-xl group"
+        >
+          <span>🎉</span>
+          Confirmar Asistencia
+          <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
+        <p class="mt-6 text-rose-600 font-medium text-sm md:text-base">
+          ⏰ Confirma antes del <span class="font-bold">25 de Febrero</span>
+        </p>
+      </div>
     </div>
 
-    <!-- Regalos -->
-    <div class="bg-white rounded-2xl shadow-md p-8 md:p-12 border border-slate-200">
-      <Title tag="h3" class="mb-8">Regalo de Bodas</Title>
-      
-      <div class="grid md:grid-cols-2 gap-8 md:gap-12">
-        <!-- Bizum -->
-        <div class="text-center p-6 rounded-xl bg-slate-50">
-          <div class="mb-4">
-            <svg class="mx-auto h-12 w-12 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
-            </svg>
-          </div>
-          <h4 class="text-xl font-semibold text-slate-800 mb-4">Bizum</h4>
-          <div class="space-y-4">
-            <div>
-              <p class="text-slate-600 mb-2">Para Ronaldo</p>
-              <button 
-                class="w-full bg-white border-2 border-amber-100 text-slate-800 px-4 py-3 rounded-lg hover:bg-amber-50 transition-colors copy-btn font-mono tracking-wide shadow-sm"
-                data-clipboard-text={bizumRonaldo}
-              >
-                {bizumRonaldo}
-              </button>
+    {/* ===== REGALOS ===== */}
+    <div>
+      <div class="text-center mb-12 md:mb-16">
+        <Title>Regalo de Bodas</Title>
+        <p class="text-gray-600 text-base md:text-lg mt-4">
+          Tu presencia es el mejor regalo, pero si deseas contribuir:
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
+        
+        {/* BIZUM */}
+        <div class="group bg-white rounded-2xl border border-rose-100 overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          {/* Header */}
+          <div class="bg-linear-to-r from-rose-50 to-pink-50 p-6 md:p-8 border-b border-rose-100">
+            <div class="flex items-center justify-center mb-4">
+              <div class="w-14 h-14 bg-linear-to-br from-rose-500 to-rose-600 rounded-full flex items-center justify-center shadow-lg">
+                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                </svg>
+              </div>
             </div>
-            <div>
-              <p class="text-slate-600 mb-2">Para Paula</p>
-              <button 
-                class="w-full bg-white border-2 border-amber-100 text-slate-800 px-4 py-3 rounded-lg hover:bg-amber-50 transition-colors copy-btn font-mono tracking-wide shadow-sm"
-                data-clipboard-text={bizumPaula}
-              >
-                {bizumPaula}
-              </button>
+            <h3 class="text-2xl md:text-3xl font-serif text-gray-900 text-center">Bizum</h3>
+          </div>
+
+          {/* Contenido */}
+          <div class="p-6 md:p-8 space-y-6">
+            {/* Ronaldo */}
+            <div class="space-y-3">
+              <div>
+                <label class="text-sm font-semibold text-rose-600 uppercase tracking-wide block mb-2">
+                  Para Ronaldo
+                </label>
+                <button 
+                  class="w-full copy-btn bg-linear-to-r from-rose-50 to-pink-50 border-2 border-rose-200 hover:border-rose-400 text-gray-900 px-4 py-3 rounded-lg transition-all duration-300 font-mono text-lg tracking-wide font-bold group/btn hover:bg-rose-100"
+                  data-clipboard-text={bizumRonaldo}
+                >
+                  <span class="inline-flex items-center gap-2">
+                    {bizumRonaldo}
+                    <svg class="w-4 h-4 opacity-0 group-hover/btn:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            {/* Paula */}
+            <div class="space-y-3">
+              <div>
+                <label class="text-sm font-semibold text-rose-600 uppercase tracking-wide block mb-2">
+                  Para Paula
+                </label>
+                <button 
+                  class="w-full copy-btn bg-linear-to-r from-rose-50 to-pink-50 border-2 border-rose-200 hover:border-rose-400 text-gray-900 px-4 py-3 rounded-lg transition-all duration-300 font-mono text-lg tracking-wide font-bold group/btn hover:bg-rose-100"
+                  data-clipboard-text={bizumPaula}
+                >
+                  <span class="inline-flex items-center gap-2">
+                    {bizumPaula}
+                    <svg class="w-4 h-4 opacity-0 group-hover/btn:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- IBAN -->
-        <div class="text-center p-6 rounded-xl bg-slate-50">
-          <div class="mb-4">
-            <svg class="mx-auto h-12 w-12 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
-            </svg>
+        {/* TRANSFERENCIA BANCARIA */}
+        <div class="group bg-white rounded-2xl border border-rose-100 overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          {/* Header */}
+          <div class="bg-linear-to-r from-rose-50 to-pink-50 p-6 md:p-8 border-b border-rose-100">
+            <div class="flex items-center justify-center mb-4">
+              <div class="w-14 h-14 bg-linear-to-br from-rose-500 to-rose-600 rounded-full flex items-center justify-center shadow-lg">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-serif text-gray-900 text-center">Transferencia Bancaria</h3>
           </div>
-          <h4 class="text-xl font-semibold text-slate-800 mb-4">Transferencia Bancaria</h4>
-          <div>
+
+          {/* Contenido */}
+          <div class="p-6 md:p-8 space-y-4">
+            <p class="text-sm text-gray-600 text-center">
+              IBAN para transferencia bancaria
+            </p>
             <button 
-              class="w-full bg-white border-2 border-amber-100 text-slate-800 px-4 py-3 rounded-lg hover:bg-amber-50 transition-colors copy-btn font-mono tracking-wide shadow-sm"
+              class="w-full copy-btn bg-linear-to-r from-rose-50 to-pink-50 border-2 border-rose-200 hover:border-rose-400 text-gray-900 px-4 py-4 rounded-lg transition-all duration-300 font-mono text-base md:text-lg tracking-wide font-bold group/btn hover:bg-rose-100"
               data-clipboard-text={ibanEjemplo}
             >
-              {ibanEjemplo}
+              <span class="inline-flex items-center gap-2 justify-center">
+                {ibanEjemplo}
+                <svg class="w-4 h-4 opacity-0 group-hover/btn:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                </svg>
+              </span>
             </button>
           </div>
+        </div>
+      </div>
+
+      {/* Nota informativa */}
+      <div class="mt-12 md:mt-16 flex justify-center">
+        <div class="bg-linear-to-r from-rose-50 to-pink-50 border border-rose-200 rounded-xl p-5 md:p-6 max-w-2xl text-center">
+          <p class="text-sm md:text-base text-gray-700">
+            <span class="font-semibold text-rose-600">💝 Nota:</span> Tu presencia es lo más importante. Si prefieres, puedes realizar el regalo en efectivo el día de la boda.
+          </p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Script para copiar -->
+  {/* Script para copiar */}
   <script is:inline>
     document.querySelectorAll('.copy-btn').forEach(btn => {
       btn.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(btn.dataset.clipboardText);
-          const originalText = btn.textContent;
-          btn.textContent = '¡Copiado! 📋';
-          btn.classList.add('bg-amber-100', 'border-amber-200');
+          const originalHTML = btn.innerHTML;
+          btn.innerHTML = '<span class="inline-flex items-center gap-2">✅ ¡Copiado!</span>';
+          btn.classList.add('bg-rose-100', 'border-rose-400', 'text-rose-900');
           setTimeout(() => {
-            btn.textContent = originalText;
-            btn.classList.remove('bg-amber-100', 'border-amber-200');
-          }, 1500);
+            btn.innerHTML = originalHTML;
+            btn.classList.remove('bg-rose-100', 'border-rose-400', 'text-rose-900');
+          }, 2000);
         } catch (err) {
           alert('Error al copiar, por favor selecciona manualmente');
         }

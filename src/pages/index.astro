@@ -1,19 +1,15 @@
 ---
 import '../styles/global.css';
-import Header from '../components/Header.astro';
 import Countdown from '../components/Countdown';
 import Layout from '../layouts/Layout.astro';
 import Location from '../components/Location.astro';
 import Itinerario from '../components/Itinerario.astro';
 import ConfirmacionRegalos from '../components/Confirmacion.astro';
-import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Boda de Paula y Ronaldo">
-  <Header />
-  <Countdown client:load weddingDate="2025-08-17T17:00:00"/>
+<Layout title="Nuestra Boda">
+  <Countdown client:load weddingDate="2026-03-29T17:00:00"/>
   <Location />
   <Itinerario />
   <ConfirmacionRegalos />
-  <Footer />
 </Layout>

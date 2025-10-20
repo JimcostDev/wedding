@@ -1,48 +1,130 @@
-# Astro Starter Kit: Basics
+# ✨ Astro + Tailwind Template
+**Plantilla personal para proyectos web usando [Astro](https://astro.build) y [Tailwind CSS](https://tailwindcss.com)**, pensada para acelerar el desarrollo y servir de referencia. 
 
-```sh
-npm create astro@latest -- --template basics
+> [!NOTE]
+> Esta plantilla refleja mis preferencias (JimcostDev). No garantiza que cubra todas las mejores prácticas, pero puede ser un excelente punto de partida.
+
+> [!TIP]
+> Además, como es un template de GitHub, también puedes utilizarlo haciendo clic en el botón correspondiente para crear un nuevo repositorio basado en esta plantilla.
+
+## Instrucciones de Uso
+
+1. **Clona este repositorio** ejecutando el siguiente comando:
+
+    ```bash
+    git clone https://github.com/JimcostDev/jimcostdev-astro-template.git
+    ```
+           
+
+2. **Instala las dependencias requeridas**:
+    - Instalar todas con `npm`:
+        ```bash
+        npm install
+        ```
+3. **Ejecuta el servidor**:
+
+    Inicia el servidor en modo de desarrollo:
+
+    - Modo **desarrollo**:
+        ```bash
+        npm run dev         
+        ```
+    
+> [!TIP] 
+> !Si te resulta útil este proyecto, apóyalo con una ⭐! Tu apoyo nos motiva a crear más contenido y mejorar los recursos disponibles. ¡Gracias! :octocat:
+
+---
+
+# 🔄 Actualizar dependencias en proyectos Node / Astro
+
+Este documento explica cómo revisar y actualizar las dependencias de un proyecto.
+
+---
+
+## 📌 Ver dependencias desactualizadas
+
+Ejecutar:
+
+```bash
+npm outdated
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Esto muestra una tabla con:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+* **Current** → versión instalada actualmente
+* **Wanted** → versión más alta permitida por `package.json`
+* **Latest** → última versión publicada en npm
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+---
 
-## 🚀 Project Structure
+## 📌 Actualizar dentro de los rangos de `package.json`
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm update
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Esto sube las dependencias a la versión **más nueva posible**, pero **sin saltar de major version** (ej: `5.x` → `5.y`, pero no `6.x`).
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
+## 📌 Actualizar a las últimas versiones (incluyendo major)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+1. Usar [npm-check-updates](https://www.npmjs.com/package/npm-check-updates):
 
-## 👀 Want to learn more?
+```bash
+npx npm-check-updates -u
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Esto reescribe `package.json` con las versiones más recientes (incluso major).
+
+2. Instalar las nuevas dependencias:
+
+```bash
+npm install
+```
+
+---
+
+## 📌 Verificar proyecto después de actualizar
+
+```bash
+npm run dev
+npm run build
+```
+
+Asegúrate de que no haya errores y revisa si alguna dependencia requiere cambios de configuración (por breaking changes).
+
+---
+
+## 📌 Manejar vulnerabilidades
+
+* Revisar vulnerabilidades:
+
+  ```bash
+  npm audit
+  ```
+
+* Arreglar automáticamente (seguro):
+
+  ```bash
+  npm audit fix
+  ```
+
+* Forzar el fix (puede traer breaking changes):
+
+  ```bash
+  npm audit fix --force
+  ```
+
+---
+
+✅ Recomendación: Antes de actualizar dependencias, hacer un **commit de respaldo** en Git:
+
+```bash
+git add .
+git commit -m "chore: backup antes de actualizar dependencias"
+```
+   
+
+
+
