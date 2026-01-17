@@ -22,20 +22,20 @@ const pageTitle = `${title}: 🐧 Paula ❤️ Ronaldo 🐧`;
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth" itemscope itemtype="https://schema.org/Event">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
-    <meta name="revisit-after" content="7 days" />
     <meta name="language" content="Spanish" />
 
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    
     <link rel="icon" type="image/webp" href="/you-are-my-penguin.png" sizes="any" />
+    <link rel="apple-touch-icon" href="/you-are-my-penguin.png" />
 
-    {/* Open Graph */}
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
@@ -44,50 +44,57 @@ const pageTitle = `${title}: 🐧 Paula ❤️ Ronaldo 🐧`;
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Paula & Ronaldo" />
 
-    {/* Twitter */}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    {/* Structured Data - Evento */}
     <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Event",
-        "name": "Boda Paula & Ronaldo",
-        "description": "Celebración de la boda de Paula y Ronaldo",
-        "startDate": "2026-03-29T17:00:00+01:00",
-        "endDate": "2026-03-30T02:00:00+01:00",
-        "location": {
-          "@type": "Place",
-          "name": "Cala Victoria, Alcúdia",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Carrer de sa Cala",
-            "addressLocality": "Alcúdia",
-            "postalCode": "07400",
-            "addressCountry": "ES"
-          }
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SocialEvent",
+      "name": "Boda Paula & Ronaldo",
+      "description": "Celebración de la boda de Paula y Ronaldo en Quinta Lacy",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "startDate": "2026-10-10T18:30:00+02:00", 
+      "endDate": "2026-10-11T02:00:00+02:00",
+      "location": {
+        "@type": "Place",
+        "name": "Quinta Lacy",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. San Luis de Cuba, 1",
+          "addressLocality": "Elda",
+          "addressRegion": "Alicante",
+          "postalCode": "03600",
+          "addressCountry": "ES"
         },
-        "image": ogImage,
-        "organizer": [
-          { "@type": "Person", "name": "Paula" },
-          { "@type": "Person", "name": "Ronaldo" }
-        ]
-      })}
+        "geo": { 
+          "@type": "GeoCoordinates",
+          "latitude": 38.45358342550134,  
+          "longitude": -0.8110992711639404
+        }
+      },
+      "image": ogImage,
+      "organizer": [
+        { "@type": "Person", "name": "Paula" },
+        { "@type": "Person", "name": "Ronaldo" }
+      ]
+    })}
     </script>
 
-    {/* Fonts */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
     <ClientRouter />
   </head>
 
   <body class="bg-white text-gray-900 antialiased">
     <a 
       href="#main-content" 
-      class="sr-only focus:not-sr-only focus:fixed top-4 left-4 bg-rose-600 text-white px-4 py-2 rounded-lg z-50 font-medium"
+      class="sr-only focus:not-sr-only focus:fixed top-4 left-4 bg-rose-600 text-white px-4 py-2 rounded-lg z-50 font-medium shadow-lg"
     >
       Saltar al contenido principal
     </a>

@@ -1,14 +1,13 @@
 ---
 // Location.astro
 import Title from "./Title.astro";
-
-const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3075.489246109944!2d3.126541415348632!3d39.59147417947336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12962ba67897eac7%3A0x1dcdc28312d6d5e1!2sCala%20Victoria!5e0!3m2!1ses!2ses!4v1718637407205!5m2!1ses!2ses";
+const mapUrl = "https://maps.google.com/maps?q=Quinta+Lacy+Av.+San+Luis+de+Cuba+1+Elda&t=&z=15&ie=UTF8&iwloc=&output=embed";
 
 const locationData = {
-  name: "Cala Victoria, Alcúdia",
-  address: "Carrer de sa Cala, 07400 Alcúdia",
-  description: "Una exclusiva cala privada con acceso reservado para nuestros invitados",
-  mapsUrl: "https://www.google.com/maps?ll=39.872485,3.160786&z=16&t=m&hl=es&gl=ES&mapclient=embed&q=Cala+victoria+Punta+Llarga+07400+Illes+Balears"
+  name: "Quinta Lacy, Alicante",
+  address: "Av. San Luis de Cuba, 1, 03600 Elda",
+  description: "Celebraremos nuestro gran día en este precioso entorno rodeado de jardines.",
+  mapsUrl: "https://maps.app.goo.gl/DztKWzdMA8BokJAo6" // El enlace para el botón "Abrir en Google Maps"
 };
 ---
 
@@ -53,7 +52,7 @@ const locationData = {
           <div class="grid grid-cols-2 gap-4 md:gap-6">
             <div class="bg-linear-to-br from-rose-50 to-pink-50 p-5 md:p-6 rounded-xl border border-rose-100">
               <div class="text-sm uppercase tracking-widest text-rose-600 font-semibold mb-2">Horario</div>
-              <p class="text-gray-900 font-light text-lg">16:30 h</p>
+              <p class="text-gray-900 font-light text-lg">18:30 h</p>
             </div>
             <div class="bg-linear-to-br from-rose-50 to-pink-50 p-5 md:p-6 rounded-xl border border-rose-100">
               <div class="text-sm uppercase tracking-widest text-rose-600 font-semibold mb-2">Tipo</div>
