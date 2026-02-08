@@ -2,9 +2,15 @@
 // Header.astro
 ---
 
-<header class="relative h-screen flex items-center justify-center">
-  {/* Imagen de fondo con overlay */}
-  <div class="absolute inset-0 z-0">
+{/* CAMBIO 1: Añadimos 'bg-slate-50' al header. 
+  Este es el color que se verá cuando la imagen se difumine en los bordes.
+*/}
+<header class="relative h-screen flex items-center justify-center overflow-hidden bg-slate-50">
+  
+  {/* Imagen de fondo con overlay y MÁSCARA 
+    CAMBIO 2: Añadimos la clase personalizada 'image-mask' a este contenedor.
+  */}
+  <div class="absolute inset-0 z-0 image-mask">
     <img
       src="/foto-boda.jpg"
       alt="Foto boda"
@@ -12,37 +18,67 @@
       loading="eager"
       decoding="async"
     />
-    <div class="absolute inset-0 bg-linear-to-b from-gray-900/40 via-gray-900/20 to-gray-900/40"></div>
+    {/* Overlay Stone (Tierra/Cálido) - Se mantiene dentro de la máscara */}
+    <div class="absolute inset-0 bg-gradient-to-b from-stone-900/40 via-stone-900/20 to-stone-900/40"></div>
   </div>
 
-  {/* Contenido del header */}
+  {/* Contenido del header (Sin cambios) */}
   <div class="text-center text-white relative z-10 px-4 space-y-8 md:space-y-12">
-    <div class="space-y-4 md:space-y-6">
-      <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif tracking-wide animate-fade-in">
+    <div class="space-y-2 md:space-y-4">
+      <h1 
+        class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wide animate-fade-in drop-shadow-lg"
+        style="font-family: 'Great Vibes', cursive;"
+      >
         Paula & Ronaldo
       </h1>
-      <p class="text-xl md:text-2xl lg:text-3xl font-light opacity-90">
+      
+      <p 
+        class="text-xl md:text-2xl lg:text-3xl font-light opacity-90 tracking-[0.2em] uppercase"
+        style="font-family: 'Playfair Display', serif;"
+      >
         ¡Nos Casamos!
       </p>
     </div>
 
     {/* Fecha destacada */}
-    <div class="text-lg md:text-2xl lg:text-3xl font-medium bg-white/10 backdrop-blur-md rounded-xl p-4 md:p-6 border border-white/30 w-fit mx-auto hover:bg-white/15 transition-colors">
+    <div 
+      class="text-xl md:text-3xl lg:text-4xl bg-white/10 backdrop-blur-md rounded-xl p-6 md:p-8 border border-white/30 w-fit mx-auto hover:bg-white/15 transition-colors shadow-2xl"
+      style="font-family: 'Playfair Display', serif;"
+    >
       03 de Octubre de 2026
     </div>
 
     {/* Mensaje especial */}
-    <div class="max-w-2xl mx-auto px-4">
-      <p class="text-lg md:text-xl lg:text-2xl font-light leading-relaxed opacity-95">
-        Estamos muy felices de compartir este momento especial con ustedes.
-        <br />
-        <span class="text-rose-300">Acompáñanos en la celebración de nuestro amor</span>
+    <div class="max-w-3xl mx-auto px-4 space-y-4 pb-8 md:pb-0">
+      <p 
+        class="text-xl md:text-2xl lg:text-3xl leading-relaxed text-white/90 italic antialiased"
+        style="font-family: 'Playfair Display', serif; font-weight: 400;"
+      >
+        "Estamos muy felices de compartir este momento especial con ustedes"
+      </p>
+      
+      <p 
+        class="text-lime-200/90 text-lg md:text-xl italic antialiased"
+        style="font-family: 'Playfair Display', serif; font-weight: 400;"
+      >
+        Acompáñanos en la celebración de nuestro amor
       </p>
     </div>
   </div>
 </header>
 
 <style>
+  /* CAMBIO 3: Definición de la máscara radial */
+  .image-mask {
+    /* Esto crea un degradado radial que se usa como máscara de transparencia.
+      - 'black 60%': El centro (60% del tamaño) es totalmente visible.
+      - 'transparent 100%': Los bordes extremos son totalmente transparentes.
+      El resultado es que la imagen se desvanece suavemente hacia el color de fondo (slate-50) en las esquinas y bordes.
+    */
+    mask-image: radial-gradient(ellipse farthest-corner at center, black 60%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse farthest-corner at center, black 60%, transparent 100%); /* Para Safari */
+  }
+
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -55,6 +91,6 @@
   }
 
   .animate-fade-in {
-    animation: fade-in 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: fade-in 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 </style>

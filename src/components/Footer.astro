@@ -2,101 +2,90 @@
 // Footer.astro
 ---
 
-<footer class="bg-linear-to-b from-white via-rose-50/30 to-rose-100 relative overflow-hidden">
-  {/* Patrón decorativo sutil */}
-  <div class="absolute inset-0 opacity-10 bg-linear-to-b from-rose-100 to-transparent"></div>
+{/* Fondo un poco más oscuro (Stone-100/200) para "cerrar" visualmente la web */}
+<footer class="bg-gradient-to-b from-slate-50 to-stone-200 py-16 md:py-24 relative overflow-hidden">
 
-  <div class="max-w-4xl mx-auto px-4 relative z-10">
+  <div class="max-w-3xl mx-auto px-6 relative z-10 text-center">
     
-    {/* Sección principal - Clara y luminosa */}
-    <div class="py-16 md:py-20 text-center">
+    {/* 1. NOMBRES Y CORAZÓN (El gran cierre) */}
+    <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 mb-8">
+      <span 
+        class="text-6xl md:text-7xl lg:text-8xl text-stone-800 leading-none"
+        style="font-family: 'Great Vibes', cursive;"
+      >
+        Paula
+      </span>
       
-      {/* Nombres con corazón */}
-      <div class="flex items-center justify-center gap-3 md:gap-4 mb-8 md:mb-10">
-        <span class="text-4xl md:text-5xl lg:text-6xl font-serif text-gray-900">Paula</span>
-        <div class="relative">
-          <svg class="h-10 w-10 md:h-12 md:w-12 text-rose-500 drop-shadow-md" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-          </svg>
-          <div class="absolute -top-1 -right-1 w-3 h-3 bg-rose-400 rounded-full blur-sm"></div>
-        </div>
-        <span class="text-4xl md:text-5xl lg:text-6xl font-serif text-gray-900">Ronaldo</span>
+      <div class="py-2 md:py-0">
+        <span class="icon-[mdi--heart] w-8 h-8 md:w-10 md:h-10 text-lime-800 animate-pulse"></span>
       </div>
-
-      {/* Mensaje de agradecimiento */}
-      <p class="text-lg md:text-2xl text-gray-700 mb-10 md:mb-12 font-light leading-relaxed">
-        Gracias por acompañarnos en nuestro día especial
-      </p>
-
-      {/* Separador decorativo mejorado */}
-      <div class="flex items-center justify-center gap-4 mb-10 md:mb-12">
-        <div class="w-24 md:w-32 h-px bg-linear-to-r from-transparent via-rose-300 to-transparent"></div>
-        <svg class="h-6 w-6 md:h-7 md:w-7 text-rose-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-        </svg>
-        <div class="w-24 md:w-32 h-px bg-linear-to-r from-transparent via-rose-300 to-transparent"></div>
-      </div>
-
-      {/* Fecha y lugar */}
-      <div class="text-gray-700 space-y-1 mb-12 md:mb-16">
-        <p class="text-xl md:text-2xl font-medium">03 de Octubre de 2026</p>
-        <p class="text-base md:text-lg text-gray-600">Quinta Lacy, Alicante</p>
-      </div>
-
-      {/* Versículo bíblico - Sección destacada */}
-      <div class="bg-linear-to-r from-rose-50/80 to-pink-50/80 backdrop-blur-sm border border-rose-200 rounded-2xl p-8 md:p-10 max-w-2xl mx-auto shadow-sm">
-        <div class="mb-4">
-          <svg class="h-6 w-6 md:h-7 md:w-7 text-rose-500 mx-auto mb-3" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M11 3a1 1 0 10-2 0 1 1 0 012 0zm-7 8a1 1 0 100-2 1 1 0 000 2zm14-1a1 1 0 11-2 0 1 1 0 012 0zm-6-8a1 1 0 10-2 0 1 1 0 012 0zM5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.3A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z"/>
-          </svg>
-        </div>
-        <p class="text-gray-800 italic leading-relaxed text-base md:text-lg mb-4 font-light">
-          "Más valen dos que uno, porque obtienen más fruto de su esfuerzo. Si caen, el uno levanta al otro. Uno solo puede ser vencido, pero dos pueden resistir; y una cuerda de tres hilos no se rompe fácilmente."
-        </p>
-        <p class="text-rose-600 font-semibold text-sm md:text-base">Eclesiastés 4:9-12 (NVI)</p>
-      </div>
+      
+      <span 
+        class="text-6xl md:text-7xl lg:text-8xl text-stone-800 leading-none"
+        style="font-family: 'Great Vibes', cursive;"
+      >
+        Ronaldo
+      </span>
     </div>
 
-    {/* Separador */}
-    <div class="h-px bg-linear-to-r from-transparent via-rose-200 to-transparent"></div>
+    {/* 2. FECHA Y LUGAR (Minimalista) */}
+    <div class="space-y-2 mb-12">
+      <p 
+        class="text-xl md:text-2xl text-stone-700 tracking-wider uppercase"
+        style="font-family: 'Playfair Display', serif;"
+      >
+        03 . Octubre . 2026
+      </p>
+      <p 
+        class="text-sm md:text-base text-stone-500 font-medium tracking-[0.2em] uppercase"
+        style="font-family: 'Montserrat', sans-serif;"
+      >
+        Quinta Lacy, Alicante
+      </p>
+    </div>
 
-    {/* Sección inferior - Oscura */}
-    <div class="py-8 md:py-10 text-center">
-      <p class="text-gray-400 text-sm md:text-base">
+    {/* 3. MENSAJE DE AGRADECIMIENTO (Sencillo) */}
+    <p 
+      class="text-lg md:text-xl text-stone-600 mb-16 font-light italic"
+      style="font-family: 'Playfair Display', serif;"
+    >
+      "Gracias por formar parte de nuestra historia y acompañarnos en este día tan especial."
+    </p>
+
+    {/* 4. VERSÍCULO BÍBLICO (Sin caja, estilo editorial limpio) */}
+    <div class="relative mb-16 px-4 md:px-10">
+      {/* Icono Biblia decorativo sutil */}
+      <div class="flex justify-center mb-4 opacity-40">
+        <span class="icon-[bx--bible] w-8 h-8 text-stone-400"></span>
+      </div>
+      
+      <blockquote class="relative">
+        <p 
+          class="text-lg md:text-xl text-stone-700 italic leading-relaxed font-light"
+          style="font-family: 'Playfair Display', serif;"
+        >
+          “Más valen dos que uno, porque obtienen más fruto de su esfuerzo... y una cuerda de tres hilos no se rompe fácilmente.”
+        </p>
+        <footer class="mt-4">
+          <cite 
+            class="text-xs font-bold text-lime-800 tracking-widest uppercase not-italic"
+            style="font-family: 'Montserrat', sans-serif;"
+          >
+            — Eclesiastés 4:9-12 —
+          </cite>
+        </footer>
+      </blockquote>
+    </div>
+
+    {/* 5. COPYRIGHT (Discreto) */}
+    <div class="border-t border-stone-300/50 pt-8 space-y-2">
+      <p class="text-stone-400 text-xs font-medium tracking-wide" style="font-family: 'Montserrat', sans-serif;">
         © 2026 Paula & Ronaldo. Todos los derechos reservados.
       </p>
-      <p class="text-gray-500 text-xs md:text-sm mt-3">
-        Hecho con 💕 para nuestro gran día
+      <p class="text-stone-500 text-xs mt-2 italic flex items-center justify-center gap-1" style="font-family: 'Playfair Display', serif;">
+        Hecho con 💚 para nuestro gran día
       </p>
     </div>
-  </div>
 
-  {/* Flores decorativas sutiles - Esquinas */}
-  <div class="absolute bottom-0 left-0 right-0 flex justify-between pointer-events-none">
-    <div class="opacity-10 -ml-12 mb-4">
-      <svg class="w-32 h-32 text-rose-400" fill="currentColor" viewBox="0 0 100 100">
-        <path d="M50 10c8 0 15 7 15 15s-7 15-15 15-15-7-15-15 7-15 15-15zm0 50c-15 0-30-8-30-20 0-8 10-15 20-20 10 5 20 12 20 20 0 12-15 20-30 20z"/>
-      </svg>
-    </div>
-    <div class="opacity-10 -mr-12 mb-4">
-      <svg class="w-32 h-32 text-rose-400 scale-x-[-1]" fill="currentColor" viewBox="0 0 100 100">
-        <path d="M50 10c8 0 15 7 15 15s-7 15-15 15-15-7-15-15 7-15 15-15zm0 50c-15 0-30-8-30-20 0-8 10-15 20-20 10 5 20 12 20 20 0 12-15 20-30 20z"/>
-      </svg>
-    </div>
   </div>
 </footer>
-
-<style>
-  @keyframes gentle-float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  footer {
-    animation: gentle-float 6s ease-in-out infinite;
-  }
-</style>

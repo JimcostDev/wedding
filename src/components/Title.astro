@@ -8,26 +8,27 @@ interface Props {
 const { tag = 'h2', class: className = '' } = Astro.props;
 const Tag = tag;
 
+// Aumentamos los tamaños porque la fuente 'Great Vibes' es más fina y pequeña visualmente
 const sizeClasses = {
-  h1: 'text-5xl md:text-6xl lg:text-7xl',
-  h2: 'text-3xl md:text-4xl lg:text-5xl',
-  h3: 'text-2xl md:text-3xl lg:text-4xl',
-  h4: 'text-xl md:text-2xl lg:text-3xl',
+  h1: 'text-6xl md:text-7xl lg:text-8xl',
+  h2: 'text-5xl md:text-6xl lg:text-7xl',
+  h3: 'text-4xl md:text-5xl lg:text-6xl',
+  h4: 'text-3xl md:text-4xl lg:text-5xl',
 };
 
 const classes = `
   ${sizeClasses[tag]}
-  font-serif
   text-center
   font-normal
-  tracking-wide
   mb-6 md:mb-8
+  text-stone-800 
   ${className}
 `;
 ---
 
-<Tag class={classes.trim()}>
-  <span class="bg-linear-to-r from-rose-600 via-rose-500 to-rose-400 bg-clip-text text-transparent">
-    <slot />
-  </span>
+<Tag 
+  class={classes.trim()} 
+  style="font-family: 'Great Vibes', cursive;"
+>
+  <slot />
 </Tag>

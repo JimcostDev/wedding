@@ -3,119 +3,84 @@
 import Title from "./Title.astro";
 
 const eventos = [
-  { hora: "18:30", titulo: "Recepción de Invitados", icon: "👋" },
-  { hora: "19:00", titulo: "Ceremonia", icon: "💍" },
-  { hora: "20:00", titulo: "Cóctel de Bienvenida", icon: "🥂" },
-  { hora: "21:00", titulo: "Cena", icon: "🍽️" },
-  { hora: "22:30", titulo: "Fiesta y Celebración", icon: "🎉" }
+  { hora: "18:30", titulo: "Recepción", descripcion: "Llegada de invitados", icon: '<span class="icon-[radix-icons--people] w-6 h-6"></span>' },
+  { hora: "19:00", titulo: "Ceremonia", descripcion: "¡El sí, quiero!", icon: '<span class="icon-[hugeicons--wedding] w-6 h-6"></span>' },
+  { hora: "20:00", titulo: "Cóctel", descripcion: "Aperitivos y música", icon: '<span class="icon-[mynaui--cocktail] w-6 h-6"></span>' },
+  { hora: "21:00", titulo: "Cena", descripcion: "Banquete nupcial", icon: '<span class="icon-[lineicons--dinner] w-6 h-6"></span>' },
+  { hora: "22:30", titulo: "Fiesta", descripcion: "Baile y barra libre", icon: '<span class="icon-[hugeicons--party] w-6 h-6"></span>' }
 ];
 ---
 
-<section class="py-16 md:py-24 bg-linear-to-b from-white via-rose-50/20 to-white">
-  <div class="max-w-6xl mx-auto px-4">
+<section class="py-16 md:py-24 bg-slate-50 overflow-hidden">
+  <div class="max-w-4xl mx-auto px-4 relative">
+    
     {/* Encabezado */}
-    <div class="text-center mb-16 md:mb-20">
+    <div class="text-center mb-16 md:mb-24">
       <Title>Itinerario del Día</Title>
-      <p class="text-gray-600 text-sm md:text-base mt-3">
-        Un día lleno de momentos especiales
+      
+      {/* CAMBIO: Tipografía unificada con el Contador (Playfair Display + Tamaño mayor) */}
+      <p 
+        class="text-stone-500 italic text-lg md:text-xl mt-4"
+        style="font-family: 'Playfair Display', serif;"
+      >
+        "Cada momento cuenta en nuestra historia"
       </p>
     </div>
 
-    {/* Timeline */}
+    {/* LÍNEA DE TIEMPO VERTICAL */}
     <div class="relative">
-      {/* Línea vertical para mobile */}
-      <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 md:w-0.5 bg-linear-to-b from-rose-200 via-rose-400 to-rose-200 md:hidden"></div>
       
-      {/* Línea horizontal para desktop */}
-      <div class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-linear-to-r from-rose-200 via-rose-400 to-rose-200 -translate-y-1/2"></div>
+      {/* La línea central */}
+      <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-lime-800/30 to-transparent md:-translate-x-1/2"></div>
 
-      {/* Grid de eventos */}
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4">
+      {/* Lista de eventos */}
+      <div class="space-y-12 md:space-y-0">
         {eventos.map((evento, index) => (
-          <div class="group relative">
-            {/* Mobile: contenedor con margen */}
-            <div class="md:hidden pl-16">
-              {/* Punto en la línea */}
-              <div class="absolute left-0 top-2 w-12 h-12 flex items-center justify-center bg-white border-4 border-white z-10">
-                <div class="w-8 h-8 bg-linear-to-br from-rose-500 to-rose-600 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
-                  {index + 1}
+          <div class={`relative flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} group`}>
+            
+            {/* 1. EL CONTENIDO (Texto) */}
+            <div class="flex-1 w-full md:w-1/2 pl-12 md:pl-0">
+              <div 
+                class={`bg-white p-6 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-all duration-500 group-hover:-translate-y-1 text-left 
+                ${index % 2 === 0 ? 'md:text-left md:ml-10' : 'md:text-right md:mr-10'}`}
+              >
+                <div class="text-2xl md:text-3xl font-serif text-lime-800 mb-2">
+                  {evento.hora}
                 </div>
+                <h3 class="text-lg font-semibold text-stone-800 uppercase tracking-wide font-sans mb-1">
+                  {evento.titulo}
+                </h3>
+                <p class="text-stone-500 font-serif italic text-sm">
+                  {evento.descripcion}
+                </p>
               </div>
+            </div>
 
-              {/* Card mobile */}
-              <div class="bg-white p-5 rounded-xl border border-rose-100 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div class="space-y-2">
-                  <div class="text-2xl">{evento.icon}</div>
-                  <div class="text-sm font-medium text-rose-600 font-mono tracking-wide">
-                    {evento.hora}
-                  </div>
-                  <h4 class="text-base font-medium text-gray-900">
-                    {evento.titulo}
-                  </h4>
+            {/* 2. EL ICONO (Nodo central) */}
+            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 flex items-center justify-center">
+              <div class="w-10 h-10 md:w-12 md:h-12 bg-white border border-lime-800/30 rounded-full flex items-center justify-center text-lime-800 shadow-sm z-10 group-hover:scale-110 group-hover:border-lime-800 group-hover:bg-lime-50 transition-all duration-300">
+                <div class="opacity-80 group-hover:opacity-100 transition-opacity">
+                  <Fragment set:html={evento.icon} />
                 </div>
               </div>
             </div>
 
-            {/* Desktop: centered layout */}
-            <div class="hidden md:flex flex-col items-center">
-              {/* Punto en la línea */}
-              <div class="relative mb-6 z-20">
-                <div class="w-12 h-12 bg-white border-4 border-white flex items-center justify-center rounded-full shadow-lg absolute left-1/2 -translate-x-1/2 -top-6">
-                  <div class="w-8 h-8 bg-linear-to-br from-rose-500 to-rose-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                    {index + 1}
-                  </div>
-                </div>
-              </div>
+            {/* 3. ESPACIO VACÍO */}
+            <div class="hidden md:block flex-1"></div>
 
-              {/* Card desktop */}
-              <div class="bg-white p-6 rounded-xl border border-rose-100 shadow-md hover:shadow-lg transition-all duration-300 w-full transform hover:-translate-y-2 group-hover:border-rose-300">
-                <div class="text-center space-y-3">
-                  <div class="text-3xl">{evento.icon}</div>
-                  <div class="text-xl font-bold text-rose-600 font-mono tracking-wide">
-                    {evento.hora}
-                  </div>
-                  <h3 class="text-base md:text-lg font-medium text-gray-900 leading-snug">
-                    {evento.titulo}
-                  </h3>
-                </div>
-              </div>
-            </div>
           </div>
         ))}
       </div>
     </div>
 
     {/* Nota informativa */}
-    <div class="mt-16 md:mt-20 flex justify-center">
-      <div class="bg-rose-50 border border-rose-200 rounded-xl p-4 md:p-6 max-w-2xl text-center">
-        <p class="text-sm md:text-base text-gray-700">
-          <span class="font-semibold text-rose-600">Nota:</span> Los horarios son aproximados y pueden variar ligeramente según el desarrollo de los eventos.
+    <div class="mt-20 text-center">
+      <div class="inline-block bg-white border border-lime-800/20 rounded-full px-6 py-3 shadow-sm">
+        <p class="text-xs md:text-sm text-stone-600 font-sans">
+          <span class="font-semibold text-lime-800">Nota:</span> Los horarios son aproximados
         </p>
       </div>
     </div>
+
   </div>
 </section>
-
-<style>
-  /* Animación suave de entrada */
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .group {
-    animation: slideUp ease-out forwards;
-  }
-
-  .group:nth-child(1) { animation-delay: 0.1s; }
-  .group:nth-child(2) { animation-delay: 0.2s; }
-  .group:nth-child(3) { animation-delay: 0.3s; }
-  .group:nth-child(4) { animation-delay: 0.4s; }
-  .group:nth-child(5) { animation-delay: 0.5s; }
-</style>
