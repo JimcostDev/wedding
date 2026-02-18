@@ -1,15 +1,7 @@
 ---
 // Header.astro
 ---
-
-{/* CAMBIO 1: Añadimos 'bg-slate-50' al header. 
-  Este es el color que se verá cuando la imagen se difumine en los bordes.
-*/}
 <header class="relative h-screen flex items-center justify-center overflow-hidden bg-slate-50">
-  
-  {/* Imagen de fondo con overlay y MÁSCARA 
-    CAMBIO 2: Añadimos la clase personalizada 'image-mask' a este contenedor.
-  */}
   <div class="absolute inset-0 z-0 image-mask">
     <img
       src="/foto-boda.jpg"
@@ -18,11 +10,8 @@
       loading="eager"
       decoding="async"
     />
-    {/* Overlay Stone (Tierra/Cálido) - Se mantiene dentro de la máscara */}
     <div class="absolute inset-0 bg-gradient-to-b from-stone-900/40 via-stone-900/20 to-stone-900/40"></div>
   </div>
-
-  {/* Contenido del header (Sin cambios) */}
   <div class="text-center text-white relative z-10 px-4 space-y-8 md:space-y-12">
     <div class="space-y-2 md:space-y-4">
       <h1 
@@ -40,7 +29,6 @@
       </p>
     </div>
 
-    {/* Fecha destacada */}
     <div 
       class="text-xl md:text-3xl lg:text-4xl bg-white/10 backdrop-blur-md rounded-xl p-6 md:p-8 border border-white/30 w-fit mx-auto hover:bg-white/15 transition-colors shadow-2xl"
       style="font-family: 'Playfair Display', serif;"
@@ -68,13 +56,7 @@
 </header>
 
 <style>
-  /* CAMBIO 3: Definición de la máscara radial */
   .image-mask {
-    /* Esto crea un degradado radial que se usa como máscara de transparencia.
-      - 'black 60%': El centro (60% del tamaño) es totalmente visible.
-      - 'transparent 100%': Los bordes extremos son totalmente transparentes.
-      El resultado es que la imagen se desvanece suavemente hacia el color de fondo (slate-50) en las esquinas y bordes.
-    */
     mask-image: radial-gradient(ellipse farthest-corner at center, black 60%, transparent 100%);
     -webkit-mask-image: radial-gradient(ellipse farthest-corner at center, black 60%, transparent 100%); /* Para Safari */
   }
