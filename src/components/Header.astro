@@ -2,7 +2,7 @@
 // Header.astro
 ---
 <header class="relative h-screen flex items-center justify-center overflow-hidden bg-slate-50">
-  <div class="absolute inset-0 z-0 image-mask">
+  <div class="absolute inset-0 z-0">
     <img
       src="/foto-boda.jpg"
       alt="Foto boda"
@@ -56,11 +56,6 @@
 </header>
 
 <style>
-  .image-mask {
-    mask-image: radial-gradient(ellipse farthest-corner at center, black 60%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse farthest-corner at center, black 60%, transparent 100%); /* Para Safari */
-  }
-
   @keyframes fade-in {
     from {
       opacity: 0;
