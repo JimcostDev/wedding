@@ -1,73 +1,111 @@
 ---
 // Header.astro
 ---
-<header class="relative h-screen flex items-center justify-center overflow-hidden bg-slate-50">
-  <div class="absolute inset-0 z-0">
-    <img
-      src="/foto-boda.jpg"
-      alt="Foto boda"
-      class="w-full h-full object-cover object-center"
-      loading="eager"
-      decoding="async"
-    />
-    <div class="absolute inset-0 bg-gradient-to-b from-stone-900/40 via-stone-900/20 to-stone-900/40"></div>
-  </div>
-  <div class="text-center text-white relative z-10 px-4 space-y-8 md:space-y-12">
-    <div class="space-y-2 md:space-y-4">
-      <h1 
-        class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wide animate-fade-in drop-shadow-lg"
-        style="font-family: 'Great Vibes', cursive;"
-      >
-        Paula & Ronaldo
-      </h1>
-      
-      <p 
-        class="text-xl md:text-2xl lg:text-3xl font-light opacity-90 tracking-[0.2em] uppercase"
-        style="font-family: 'Playfair Display', serif;"
-      >
-        ¡Nos Casamos!
-      </p>
-    </div>
 
-    <div 
-      class="text-xl md:text-3xl lg:text-4xl bg-white/10 backdrop-blur-md rounded-xl p-6 md:p-8 border border-white/30 w-fit mx-auto hover:bg-white/15 transition-colors shadow-2xl"
+<header class="relative min-h-screen flex flex-col items-center justify-center py-20 overflow-hidden bg-slate-50">
+  
+  {/* 1. TEXTO SUPERIOR: NOS CASAMOS */}
+  <p 
+    class="text-xs md:text-sm text-lime-800 font-semibold tracking-[0.4em] uppercase mb-10 md:mb-16 animate-fade-in-down"
+    style="font-family: 'Montserrat', sans-serif;"
+  >
+    Nos Casamos
+  </p>
+
+  {/* 2. CONTENEDOR DE FOTOS Y FECHA */}
+  <div class="w-full max-w-5xl mx-auto px-4 mb-16 md:mb-20 animate-fade-in">
+    {/* Grid de 3 columnas para las fotos */}
+    <div class="grid grid-cols-3 gap-2 md:gap-6 lg:gap-8">
+      
+      {/* BLOQUE 1: Foto + Día (03) */}
+      <div class="relative overflow-hidden aspect-[3/4] group rounded-xl md:rounded-2xl shadow-md">
+        <img src="/foto-izq.jpg" alt="Paula y Ronaldo beso" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" />
+        {/* Overlay normal (30%) */}
+        <div class="absolute inset-0 bg-stone-900/30 group-hover:bg-stone-900/40 transition-colors duration-500"></div>
+        
+        {/* CAMBIO 1: Alineación ABAJO (items-end) con un poco de padding (pb-6) */}
+        <div class="absolute inset-0 flex items-end justify-center pb-4 md:pb-6 pointer-events-none">
+          <span class="date-number">03</span>
+        </div>
+      </div>
+
+      {/* BLOQUE 2: Foto + Mes (10) */}
+      <div class="relative overflow-hidden aspect-[3/4] group rounded-xl md:rounded-2xl shadow-md">
+        <img src="/foto-centro.jpeg" alt="Manos entrelazadas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" />
+        {/* Overlay normal (30%) */}
+        <div class="absolute inset-0 bg-stone-900/30 group-hover:bg-stone-900/40 transition-colors duration-500"></div>
+        
+        {/* CAMBIO 1: Alineación ABAJO */}
+        <div class="absolute inset-0 flex items-end justify-center pb-4 md:pb-6 pointer-events-none">
+          <span class="date-number">10</span>
+        </div>
+      </div>
+
+      {/* BLOQUE 3: Foto + Año (26) - LA QUE SE VEÍA OSCURA */}
+      <div class="relative overflow-hidden aspect-[3/4] group rounded-xl md:rounded-2xl shadow-md">
+        {/* Asegúrate que esta imagen es la de las manos o la que quieras a la derecha */}
+        <img src="/foto-der.jpeg" alt="Detalle manos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" />
+        
+        {/* CAMBIO 2: Overlay MUCHO MÁS CLARO solo para esta foto (bg-stone-900/10) */}
+        <div class="absolute inset-0 bg-stone-900/10 group-hover:bg-stone-900/30 transition-colors duration-500"></div>
+        
+        {/* CAMBIO 1: Alineación ABAJO */}
+        <div class="absolute inset-0 flex items-end justify-center pb-4 md:pb-6 pointer-events-none">
+          <span class="date-number">26</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  {/* 3. NOMBRES (Firma) */}
+  <h1 
+    class="text-6xl sm:text-7xl md:text-8xl text-stone-800 mb-8 md:mb-10 text-center animate-fade-in-up"
+    style="font-family: 'Great Vibes', cursive;"
+  >
+    Paula & Ronaldo
+  </h1>
+
+  {/* 4. TEXTO INFERIOR */}
+  <div class="max-w-2xl mx-auto px-6 text-center animate-fade-in-up delay-200">
+    <p 
+      class="text-lg md:text-xl text-stone-500 italic leading-relaxed font-light"
       style="font-family: 'Playfair Display', serif;"
     >
-      03 de Octubre de 2026
-    </div>
-
-    {/* Mensaje especial */}
-    <div class="max-w-3xl mx-auto px-4 space-y-4 pb-8 md:pb-0">
-      <p 
-        class="text-xl md:text-2xl lg:text-3xl leading-relaxed text-white/90 italic antialiased"
-        style="font-family: 'Playfair Display', serif; font-weight: 400;"
-      >
-        "Estamos muy felices de compartir este momento especial con ustedes"
-      </p>
-      
-      <p 
-        class="text-lime-200/90 text-lg md:text-xl italic antialiased"
-        style="font-family: 'Playfair Display', serif; font-weight: 400;"
-      >
-        Acompáñanos en la celebración de nuestro amor
-      </p>
-    </div>
+      "Estamos muy felices de compartir este momento especial con ustedes. Acompáñanos en la celebración de nuestro amor."
+    </p>
   </div>
+
 </header>
 
 <style>
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(1rem);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  /* Estilo para los números gigantes sobre las fotos */
+  .date-number {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    color: white;
+    /* Tamaño fluido: se adapta mágicamente a cualquier pantalla */
+    font-size: clamp(4rem, 13vw, 9rem); 
+    line-height: 0.8; /* Reducimos un poco el interlineado para que no ocupe tanto hacia arriba */
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   }
 
-  .animate-fade-in {
-    animation: fade-in 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  /* Animaciones suaves */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
+  @keyframes fade-in-down {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in { animation: fade-in 1.5s ease-out forwards; }
+  .animate-fade-in-down { animation: fade-in-down 1.2s ease-out forwards; }
+  .animate-fade-in-up { animation: fade-in-up 1.2s ease-out forwards; }
+  .delay-200 { animation-delay: 0.3s; }
 </style>
