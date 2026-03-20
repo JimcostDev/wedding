@@ -1,14 +1,26 @@
 ---
-// Itinerario.astro
 import Title from "./Title.astro";
 
-const eventos = [
-  { hora: "18:30", titulo: "Recepción", descripcion: "Llegada de invitados", icon: '<span class="icon-[radix-icons--people] w-6 h-6"></span>' },
-  { hora: "19:00", titulo: "Ceremonia", descripcion: "¡El sí, quiero!", icon: '<span class="icon-[hugeicons--wedding] w-6 h-6"></span>' },
-  { hora: "20:00", titulo: "Cóctel", descripcion: "Aperitivos", icon: '<span class="icon-[mynaui--cocktail] w-6 h-6"></span>' },
-  { hora: "21:00", titulo: "Cena", descripcion: "Banquete nupcial", icon: '<span class="icon-[lineicons--dinner] w-6 h-6"></span>' },
-  { hora: "22:30", titulo: "Fiesta", descripcion: "Celebración", icon: '<span class="icon-[hugeicons--party] w-6 h-6"></span>' }
-];
+interface Props {
+  itinerary?: {
+    title?: string;
+    subtitle?: string;
+    events?: Array<{
+      hora?: string;
+      titulo?: string;
+      descripcion?: string;
+      iconHtml?: string;
+    }>;
+    note?: string;
+  };
+}
+
+const { itinerary } = Astro.props;
+
+const note = itinerary?.note ?? "";
+const noteParts = note.split(":");
+const noteLabel = noteParts[0]?.trim() ?? "";
+const noteRest = noteParts.slice(1).join(":").trim();
 ---
 
 <section class="py-16 md:py-24 bg-slate-50 overflow-hidden">
@@ -16,14 +28,14 @@ const eventos = [
     
     {/* Encabezado */}
     <div class="text-center mb-16 md:mb-24">
-      <Title>Itinerario del Día</Title>
+      <Title>{itinerary?.title}</Title>
       
       {/* CAMBIO: Tipografía unificada con el Contador (Playfair Display + Tamaño mayor) */}
       <p 
         class="text-stone-500 italic text-lg md:text-xl mt-4"
         style="font-family: 'Playfair Display', serif;"
       >
-        "Cada momento cuenta en nuestra historia"
+        {itinerary?.subtitle}
       </p>
     </div>
 
@@ -35,7 +47,7 @@ const eventos = [
 
       {/* Lista de eventos */}
       <div class="space-y-12 md:space-y-0">
-        {eventos.map((evento, index) => (
+        {itinerary?.events?.map((evento, index) => (
           <div class={`relative flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} group`}>
             
             {/* 1. EL CONTENIDO (Texto) */}
@@ -60,7 +72,7 @@ const eventos = [
             <div class="absolute left-4 md:left-1/2 -translate-x-1/2 flex items-center justify-center">
               <div class="w-10 h-10 md:w-12 md:h-12 bg-white border border-lime-800/30 rounded-full flex items-center justify-center text-lime-800 shadow-sm z-10 group-hover:scale-110 group-hover:border-lime-800 group-hover:bg-lime-50 transition-all duration-300">
                 <div class="opacity-80 group-hover:opacity-100 transition-opacity">
-                  <Fragment set:html={evento.icon} />
+                  <Fragment set:html={evento.iconHtml} />
                 </div>
               </div>
             </div>
@@ -77,7 +89,7 @@ const eventos = [
     <div class="mt-20 text-center">
       <div class="inline-block bg-white border border-lime-800/20 rounded-full px-6 py-3 shadow-sm">
         <p class="text-xs md:text-sm text-stone-600 font-sans">
-          <span class="font-semibold text-lime-800">Nota:</span> Los horarios son aproximados
+          <span class="font-semibold text-lime-800">{noteLabel}:</span> {noteRest}
         </p>
       </div>
     </div>

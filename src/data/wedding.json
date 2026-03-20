@@ -1,0 +1,229 @@
+{
+  "layout": {
+    "htmlLang": "es",
+    "defaultProps": {
+      "title": "You're My Penguin",
+      "description": "Acompáñanos en la celebración de nuestra boda. Aquí encontrarás toda la información importante sobre el evento, ubicación, itinerario y podrás confirmar tu asistencia.",
+      "canonical": "https://ourwedding.jimcostdev.com",
+      "ogImage": "https://ourwedding.jimcostdev.com/banner-boda.jpg"
+    },
+    "pageTitle": {
+      "template": "${title}: Paula ❤️ Ronaldo",
+      "suffix": "Paula ❤️ Ronaldo"
+    },
+    "meta": {
+      "robots": "index, follow",
+      "languageMeta": "Spanish",
+      "ogLocale": "es_ES",
+      "ogSiteName": "Paula & Ronaldo",
+      "favicon": {
+        "type": "image/webp",
+        "src": "/you-are-my-penguin.png",
+        "sizes": "any"
+      },
+      "appleTouchIcon": "/you-are-my-penguin.png"
+    },
+    "schemaOrg": {
+      "@context": "https://schema.org",
+      "@type": "SocialEvent",
+      "name": "Boda Paula & Ronaldo",
+      "description": "Celebración de la boda de Paula y Ronaldo en Quinta Lacy",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "startDate": "2026-10-03T18:30:00+02:00",
+      "endDate": "2026-10-04T02:00:00+02:00",
+      "location": {
+        "@type": "Place",
+        "name": "Quinta Lacy",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. San Luis de Cuba, 1",
+          "addressLocality": "Elda",
+          "addressRegion": "Alicante",
+          "postalCode": "03600",
+          "addressCountry": "ES"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 38.45358342550134,
+          "longitude": -0.8110992711639404
+        }
+      },
+      "image": "https://ourwedding.jimcostdev.com/banner-boda.jpg",
+      "organizer": [
+        {
+          "@type": "Person",
+          "name": "Paula"
+        },
+        {
+          "@type": "Person",
+          "name": "Ronaldo"
+        }
+      ]
+    }
+  },
+  "page": {
+    "layoutTitleProp": "Nuestra Boda"
+  },
+  "hero": {
+    "topText": "Nos Casamos",
+    "gallery": [
+      {
+        "imageSrc": "/foto-izq.jpg",
+        "alt": "Paula y Ronaldo beso",
+        "dateNumber": "03"
+      },
+      {
+        "imageSrc": "/foto-centro.jpeg",
+        "alt": "Manos entrelazadas",
+        "dateNumber": "10"
+      },
+      {
+        "imageSrc": "/foto-der.jpeg",
+        "alt": "Detalle manos",
+        "dateNumber": "26"
+      }
+    ],
+    "names": "Paula & Ronaldo",
+    "bottomText": "\"Estamos muy felices de compartir este momento especial con ustedes. Acompáñanos en la celebración de nuestro amor.\""
+  },
+  "countdown": {
+    "weddingDate": "2026-10-03T18:30:00+02:00",
+    "title": "La Cuenta Atrás",
+    "heading": "¡Ya falta menos!",
+    "blocks": [
+      { "label": "Días", "delayMs": 0 },
+      { "label": "Horas", "delayMs": 100 },
+      { "label": "Minutos", "delayMs": 200 },
+      { "label": "Segundos", "delayMs": 300 }
+    ],
+    "footerMessage": "\"Nos vemos en los jardines de Quinta Lacy\""
+  },
+  "location": {
+    "title": "Lugar de la Celebración",
+    "mapEmbedUrl": "https://maps.google.com/maps?q=Quinta+Lacy+Av.+San+Luis+de+Cuba+1+Elda&t=&z=15&ie=UTF8&iwloc=&output=embed",
+    "name": "Quinta Lacy, Alicante",
+    "address": "Av. San Luis de Cuba, 1, 03600 Elda",
+    "description": "Celebraremos nuestro gran día en este precioso entorno rodeado de jardines.",
+    "mapsUrl": "https://maps.app.goo.gl/DztKWzdMA8BokJAo6",
+    "howToArriveLabel": "¿Cómo llegar?",
+    "labels": {
+      "schedule": "Horario",
+      "type": "Tipo"
+    },
+    "values": {
+      "schedule": "18:30 h",
+      "type": "Recepción"
+    },
+    "ctaText": "Abrir en Google Maps",
+    "iframe": {
+      "title": "Ubicación exacta de la ceremonia",
+      "ariaLabel": "Mapa interactivo de la ubicación"
+    }
+  },
+  "itinerary": {
+    "title": "Itinerario del Día",
+    "subtitle": "\"Cada momento cuenta en nuestra historia\"",
+    "events": [
+      {
+        "hora": "18:30",
+        "titulo": "Recepción",
+        "descripcion": "Llegada de invitados",
+        "iconHtml": "<span class=\"icon-[radix-icons--people] w-6 h-6\"></span>"
+      },
+      {
+        "hora": "19:00",
+        "titulo": "Ceremonia",
+        "descripcion": "¡El sí, quiero!",
+        "iconHtml": "<span class=\"icon-[hugeicons--wedding] w-6 h-6\"></span>"
+      },
+      {
+        "hora": "20:00",
+        "titulo": "Cóctel",
+        "descripcion": "Aperitivos",
+        "iconHtml": "<span class=\"icon-[mynaui--cocktail] w-6 h-6\"></span>"
+      },
+      {
+        "hora": "21:00",
+        "titulo": "Cena",
+        "descripcion": "Banquete nupcial",
+        "iconHtml": "<span class=\"icon-[lineicons--dinner] w-6 h-6\"></span>"
+      },
+      {
+        "hora": "22:30",
+        "titulo": "Fiesta",
+        "descripcion": "Celebración",
+        "iconHtml": "<span class=\"icon-[hugeicons--party] w-6 h-6\"></span>"
+      }
+    ],
+    "note": "Nota: Los horarios son aproximados"
+  },
+  "rsvp": {
+    "title": "Confirma tu Asistencia",
+    "subtitle": "Nos encantaría contar contigo en nuestro gran día",
+    "confirmButton": {
+      "text": "Confirmar Asistencia",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSeWJJdj1HpJEBYtkPW618ULOP7FLtO4_GnZ-rNaZlEarWWbyA/viewform?usp=header"
+    },
+    "deadline": {
+      "prefix": "Confirma antes del ",
+      "dateBold": "01 de Septiembre"
+    },
+    "noteText": ""
+  },
+  "gifts": {
+    "title": "Regalo de Bodas",
+    "subtitle": "Tu presencia es el mejor regalo, pero si deseas contribuir:",
+    "bizum": {
+      "title": "Bizum",
+      "copyText": "Copiar",
+      "toRonaldoLabel": "Para Ronaldo",
+      "toRonaldoValue": "624499125",
+      "toPaulaLabel": "Para Paula",
+      "toPaulaValue": "644774435"
+    },
+    "transfer": {
+      "title": "Transferencia",
+      "label": "Número de cuenta (IBAN)",
+      "ibanValue": "ES27 0049 3978 6828 1415 7212",
+      "copyText": "Copiar"
+    },
+    "notes": {
+      "label": "Nota:",
+      "text": "Si prefieres, puedes realizar el regalo en efectivo el día de la boda."
+    },
+    "copyUi": {
+      "successText": "✅ ¡Listo!",
+      "errorAlertText": "Error al copiar, por favor selecciona manualmente"
+    }
+  },
+  "footer": {
+    "names": {
+      "left": "Paula",
+      "right": "Ronaldo"
+    },
+    "dateLine": "03 . Octubre . 2026",
+    "placeLine": "Quinta Lacy, Alicante",
+    "thanksMessage": "\"Gracias por formar parte de nuestra historia y acompañarnos en este día tan especial.\"",
+    "bibleQuote": {
+      "quote": "“Más valen dos que uno, porque obtienen más fruto de su esfuerzo... y una cuerda de tres hilos no se rompe fácilmente.”",
+      "cite": "— Eclesiastés 4:9-12 —"
+    },
+    "copyright": "© 2026 Paula & Ronaldo. Todos los derechos reservados.",
+    "madeWith": "Hecho con 💚 para nuestro gran día"
+  },
+  "assets": {
+    "publicImages": {
+      "fotoIzq": "/foto-izq.jpg",
+      "fotoCentro": "/foto-centro.jpeg",
+      "fotoDer": "/foto-der.jpeg",
+      "bannerBoda": "/banner-boda.jpg"
+    }
+  },
+  "uiStrings": {
+    "countdown": {
+      "lowerMessage": "\"Nos vemos en los jardines de Quinta Lacy\""
+    }
+  }
+}
+

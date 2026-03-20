@@ -1,5 +1,18 @@
 ---
 // Footer.astro
+interface Props {
+  footer?: {
+    names?: { left?: string; right?: string };
+    dateLine?: string;
+    placeLine?: string;
+    thanksMessage?: string;
+    bibleQuote?: { quote?: string; cite?: string };
+    copyright?: string;
+    madeWith?: string;
+  };
+}
+
+const { footer } = Astro.props;
 ---
 
 {/* Fondo un poco más oscuro (Stone-100/200) para "cerrar" visualmente la web */}
@@ -13,7 +26,7 @@
         class="text-6xl md:text-7xl lg:text-8xl text-stone-800 leading-none"
         style="font-family: 'Great Vibes', cursive;"
       >
-        Paula
+        {footer?.names?.left}
       </span>
       
       <div class="py-2 md:py-0">
@@ -24,7 +37,7 @@
         class="text-6xl md:text-7xl lg:text-8xl text-stone-800 leading-none"
         style="font-family: 'Great Vibes', cursive;"
       >
-        Ronaldo
+        {footer?.names?.right}
       </span>
     </div>
 
@@ -34,13 +47,13 @@
         class="text-xl md:text-2xl text-stone-700 tracking-wider uppercase"
         style="font-family: 'Playfair Display', serif;"
       >
-        03 . Octubre . 2026
+        {footer?.dateLine}
       </p>
       <p 
         class="text-sm md:text-base text-stone-500 font-medium tracking-[0.2em] uppercase"
         style="font-family: 'Montserrat', sans-serif;"
       >
-        Quinta Lacy, Alicante
+        {footer?.placeLine}
       </p>
     </div>
 
@@ -49,7 +62,7 @@
       class="text-lg md:text-xl text-stone-600 mb-16 font-light italic"
       style="font-family: 'Playfair Display', serif;"
     >
-      "Gracias por formar parte de nuestra historia y acompañarnos en este día tan especial."
+      {footer?.thanksMessage}
     </p>
 
     {/* 4. VERSÍCULO BÍBLICO (Sin caja, estilo editorial limpio) */}
@@ -64,14 +77,14 @@
           class="text-lg md:text-xl text-stone-700 italic leading-relaxed font-light"
           style="font-family: 'Playfair Display', serif;"
         >
-          “Más valen dos que uno, porque obtienen más fruto de su esfuerzo... y una cuerda de tres hilos no se rompe fácilmente.”
+        {footer?.bibleQuote?.quote}
         </p>
         <footer class="mt-4">
           <cite 
             class="text-xs font-bold text-lime-800 tracking-widest uppercase not-italic"
             style="font-family: 'Montserrat', sans-serif;"
           >
-            — Eclesiastés 4:9-12 —
+          {footer?.bibleQuote?.cite}
           </cite>
         </footer>
       </blockquote>
@@ -80,10 +93,10 @@
     {/* 5. COPYRIGHT (Discreto) */}
     <div class="border-t border-stone-300/50 pt-8 space-y-2">
       <p class="text-stone-400 text-xs font-medium tracking-wide" style="font-family: 'Montserrat', sans-serif;">
-        © 2026 Paula & Ronaldo. Todos los derechos reservados.
+        {footer?.copyright}
       </p>
       <p class="text-stone-500 text-xs mt-2 italic flex items-center justify-center gap-1" style="font-family: 'Playfair Display', serif;">
-        Hecho con 💚 para nuestro gran día
+        {footer?.madeWith}
       </p>
     </div>
 

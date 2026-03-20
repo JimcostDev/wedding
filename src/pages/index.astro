@@ -4,11 +4,13 @@ import Layout from '@layouts/Layout.astro';
 import Location from '@components/Location.astro';
 import Itinerario from '@components/Itinerario.astro';
 import ConfirmacionRegalos from '@components/Confirmacion.astro';
+
+import wedding from '../data/wedding.json';
 ---
 
-<Layout title="Nuestra Boda">
-  <Countdown client:load weddingDate="2026-10-03T18:30:00+02:00"/>
-  <Location />
-  <Itinerario />
-  <ConfirmacionRegalos />
+<Layout wedding={wedding} title="Nuestra Boda">
+  <Countdown client:load countdown={wedding.countdown} weddingDate={wedding.countdown.weddingDate} />
+  <Location location={wedding.location} />
+  <Itinerario itinerary={wedding.itinerary} />
+  <ConfirmacionRegalos rsvp={wedding.rsvp} gifts={wedding.gifts} />
 </Layout>

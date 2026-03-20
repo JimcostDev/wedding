@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
-export default function Countdown({ weddingDate }) {
+export default function Countdown({ countdown, weddingDate }) {
+  const resolvedWeddingDate = countdown?.weddingDate ?? weddingDate;
+
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -9,7 +11,7 @@ export default function Countdown({ weddingDate }) {
   });
 
   useEffect(() => {
-    const target = new Date(weddingDate).getTime();
+    const target = new Date(resolvedWeddingDate).getTime();
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -31,7 +33,7 @@ export default function Countdown({ weddingDate }) {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [weddingDate]);
+  }, [resolvedWeddingDate]);
 
   return (
     <section className="py-16 md:py-24 bg-slate-50">
@@ -43,7 +45,7 @@ export default function Countdown({ weddingDate }) {
             className="text-lime-800 tracking-[0.2em] text-xs md:text-sm uppercase font-semibold"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
-            La Cuenta Atrás
+            {countdown?.title}
           </span>
           
           {/* COHERENCIA: Usamos Great Vibes (como en el Header) para el título */}
@@ -51,7 +53,7 @@ export default function Countdown({ weddingDate }) {
             className="text-5xl md:text-6xl lg:text-7xl text-stone-800 pt-2"
             style={{ fontFamily: "'Great Vibes', cursive" }}
           >
-            ¡Ya falta menos!
+            {countdown?.heading}
           </h2>
           
           <div className="w-24 h-1 bg-lime-800/20 mx-auto rounded-full mt-4"></div>
@@ -59,10 +61,19 @@ export default function Countdown({ weddingDate }) {
 
         {/* Grid de bloques de tiempo */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-          <TimeBlock value={timeLeft.days} label="Días" delay="0" />
-          <TimeBlock value={timeLeft.hours} label="Horas" delay="100" />
-          <TimeBlock value={timeLeft.minutes} label="Minutos" delay="200" />
-          <TimeBlock value={timeLeft.seconds} label="Segundos" delay="300" />
+          {(countdown?.blocks ?? []).map((block, index) => {
+            const value =
+              index === 0 ? timeLeft.days : index === 1 ? timeLeft.hours : index === 2 ? timeLeft.minutes : timeLeft.seconds;
+
+            return (
+              <TimeBlock
+                key={`${block?.label ?? "block"}-${index}`}
+                value={value}
+                label={block?.label}
+                delay={block?.delayMs}
+              />
+            );
+          })}
         </div>
 
         {/* Mensaje inferior */}
@@ -71,7 +82,7 @@ export default function Countdown({ weddingDate }) {
             className="text-stone-500 italic text-lg md:text-xl"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            "Nos vemos en los jardines de Quinta Lacy"
+            {countdown?.footerMessage}
           </p>
         </div>
       </div>

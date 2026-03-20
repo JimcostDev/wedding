@@ -1,5 +1,26 @@
 ---
 interface Props {
+  wedding?: {
+    layout?: {
+      htmlLang?: string;
+      meta?: {
+        ogLocale?: string;
+        ogSiteName?: string;
+        favicon?: { src?: string; type?: string; sizes?: string };
+        appleTouchIcon?: string;
+      };
+      defaultProps?: {
+        title?: string;
+        description?: string;
+        canonical?: string;
+        ogImage?: string;
+      };
+      pageTitle?: {
+        suffix?: string;
+      };
+      schemaOrg?: Record<string, unknown>;
+    };
+  };
   title?: string;
   description?: string;
   canonical?: string;
@@ -12,17 +33,44 @@ import Footer from '@components/Footer.astro';
 import { ClientRouter } from 'astro:transitions';
 
 const {
+  wedding,
   title = "You're My Penguin",
   description = 'Acompáñanos en la celebración de nuestra boda. Aquí encontrarás toda la información importante sobre el evento, ubicación, itinerario y podrás confirmar tu asistencia.',
   canonical = 'https://ourwedding.jimcostdev.com',
   ogImage = 'https://ourwedding.jimcostdev.com/banner-boda.jpg',
 } = Astro.props;
 
-const pageTitle = `${title}: Paula ❤️ Ronaldo`;
+const weddingLayout = wedding?.layout;
+const weddingMeta = weddingLayout?.meta;
+
+const resolvedDescription =
+  Astro.props.description ?? weddingLayout?.defaultProps?.description ?? description;
+const resolvedCanonical =
+  Astro.props.canonical ?? weddingLayout?.defaultProps?.canonical ?? canonical;
+const resolvedOgImage =
+  Astro.props.ogImage ?? weddingLayout?.defaultProps?.ogImage ?? ogImage;
+
+const resolvedTitlePrefix = Astro.props.title ?? title;
+const resolvedTitleSuffix = weddingLayout?.pageTitle?.suffix ?? 'Paula ❤️ Ronaldo';
+const pageTitle = weddingLayout?.pageTitle?.suffix
+  ? `${resolvedTitlePrefix}: ${resolvedTitleSuffix}`
+  : resolvedTitlePrefix;
+
+const schemaOrg = weddingLayout?.schemaOrg
+  ? { ...weddingLayout.schemaOrg, image: weddingLayout.schemaOrg.image ?? resolvedOgImage }
+  : null;
+
+const resolvedHtmlLang = weddingLayout?.htmlLang ?? 'es';
+const resolvedMetaOgLocale = weddingMeta?.ogLocale ?? 'es_ES';
+const resolvedMetaOgSiteName = weddingMeta?.ogSiteName ?? 'Paula & Ronaldo';
+const resolvedFavicon = weddingMeta?.favicon?.src ?? '/you-are-my-penguin.png';
+const resolvedFaviconType = weddingMeta?.favicon?.type ?? 'image/webp';
+const resolvedFaviconSizes = weddingMeta?.favicon?.sizes ?? 'any';
+const resolvedAppleTouchIcon = weddingMeta?.appleTouchIcon ?? '/you-are-my-penguin.png';
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang={resolvedHtmlLang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,59 +78,30 @@ const pageTitle = `${title}: Paula ❤️ Ronaldo`;
     <meta name="language" content="Spanish" />
 
     <title>{pageTitle}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    <meta name="description" content={resolvedDescription} />
+    <link rel="canonical" href={resolvedCanonical} />
     
-    <link rel="icon" type="image/webp" href="/you-are-my-penguin.png" sizes="any" />
-    <link rel="apple-touch-icon" href="/you-are-my-penguin.png" />
+    <link rel="icon" type={resolvedFaviconType} href={resolvedFavicon} sizes={resolvedFaviconSizes} />
+    <link rel="apple-touch-icon" href={resolvedAppleTouchIcon} />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="og:site_name" content="Paula & Ronaldo" />
+    <meta property="og:description" content={resolvedDescription} />
+    <meta property="og:image" content={resolvedOgImage} />
+    <meta property="og:url" content={resolvedCanonical} />
+    <meta property="og:locale" content={resolvedMetaOgLocale} />
+    <meta property="og:site_name" content={resolvedMetaOgSiteName} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:description" content={resolvedDescription} />
+    <meta name="twitter:image" content={resolvedOgImage} />
 
-    <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "SocialEvent",
-      "name": "Boda Paula & Ronaldo",
-      "description": "Celebración de la boda de Paula y Ronaldo en Quinta Lacy",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "startDate": "2026-10-03T18:30:00+02:00", 
-      "endDate": "2026-10-04T02:00:00+02:00",
-      "location": {
-        "@type": "Place",
-        "name": "Quinta Lacy",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Av. San Luis de Cuba, 1",
-          "addressLocality": "Elda",
-          "addressRegion": "Alicante",
-          "postalCode": "03600",
-          "addressCountry": "ES"
-        },
-        "geo": { 
-          "@type": "GeoCoordinates",
-          "latitude": 38.45358342550134,  
-          "longitude": -0.8110992711639404
-        }
-      },
-      "image": ogImage,
-      "organizer": [
-        { "@type": "Person", "name": "Paula" },
-        { "@type": "Person", "name": "Ronaldo" }
-      ]
-    })}
-    </script>
+    {schemaOrg && (
+      <script type="application/ld+json">
+        {JSON.stringify(schemaOrg)}
+      </script>
+    )}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -99,12 +118,12 @@ const pageTitle = `${title}: Paula ❤️ Ronaldo`;
       Saltar al contenido principal
     </a>
 
-    <Header />
+    <Header hero={wedding?.hero} />
 
     <main id="main-content" class="w-full">
       <slot />
     </main>
 
-    <Footer />
+    <Footer footer={wedding?.footer} />
   </body>
 </html>

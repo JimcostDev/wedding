@@ -3,9 +3,11 @@ import Layout from "@layouts/Layout.astro";
 
 const description = "Lo sentimos, no podemos encontrar la página que estás buscando.";
 const suggestion = "¿Quieres regresar a la página principal?";
+
+import wedding from "../data/wedding.json";
 ---
 
-<Layout title="Página no encontrada">
+<Layout wedding={wedding} title="Página no encontrada">
     <section class="bg-sky-50 p-8 m-4">
         <div
             class="container min-h-screen px-6 py-12 mx-auto lg:flex lg:items-center lg:gap-12"

@@ -1,5 +1,19 @@
 ---
 // Header.astro
+interface Props {
+  hero?: {
+    topText?: string;
+    gallery?: Array<{
+      imageSrc?: string;
+      alt?: string;
+      dateNumber?: string;
+    }>;
+    names?: string;
+    bottomText?: string;
+  };
+}
+
+const { hero } = Astro.props;
 ---
 
 <header class="relative min-h-screen flex flex-col items-center justify-center py-20 overflow-hidden bg-slate-50">
@@ -9,52 +23,31 @@
     class="text-xs md:text-sm text-lime-800 font-semibold tracking-[0.4em] uppercase mb-10 md:mb-16 animate-fade-in-down"
     style="font-family: 'Montserrat', sans-serif;"
   >
-    Nos Casamos
+    {hero?.topText}
   </p>
 
   {/* 2. CONTENEDOR DE FOTOS Y FECHA */}
   <div class="w-full max-w-5xl mx-auto px-4 mb-16 md:mb-20 animate-fade-in">
     {/* Grid de 3 columnas para las fotos */}
     <div class="grid grid-cols-3 gap-2 md:gap-6 lg:gap-8">
-      
-      {/* BLOQUE 1: Foto + Día (03) */}
-      <div class="relative overflow-hidden aspect-[3/4] group rounded-xl md:rounded-2xl shadow-md">
-        <img src="/foto-izq.jpg" alt="Paula y Ronaldo beso" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" />
-        {/* Overlay normal (30%) */}
-        <div class="absolute inset-0 bg-stone-900/30 group-hover:bg-stone-900/40 transition-colors duration-500"></div>
-        
-        {/* CAMBIO 1: Alineación ABAJO (items-end) con un poco de padding (pb-6) */}
-        <div class="absolute inset-0 flex items-end justify-center pb-4 md:pb-6 pointer-events-none">
-          <span class="date-number">03</span>
-        </div>
-      </div>
-
-      {/* BLOQUE 2: Foto + Mes (10) */}
-      <div class="relative overflow-hidden aspect-[3/4] group rounded-xl md:rounded-2xl shadow-md">
-        <img src="/foto-centro.jpeg" alt="Manos entrelazadas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" />
-        {/* Overlay normal (30%) */}
-        <div class="absolute inset-0 bg-stone-900/30 group-hover:bg-stone-900/40 transition-colors duration-500"></div>
-        
-        {/* CAMBIO 1: Alineación ABAJO */}
-        <div class="absolute inset-0 flex items-end justify-center pb-4 md:pb-6 pointer-events-none">
-          <span class="date-number">10</span>
-        </div>
-      </div>
-
-      {/* BLOQUE 3: Foto + Año (26) - LA QUE SE VEÍA OSCURA */}
-      <div class="relative overflow-hidden aspect-[3/4] group rounded-xl md:rounded-2xl shadow-md">
-        {/* Asegúrate que esta imagen es la de las manos o la que quieras a la derecha */}
-        <img src="/foto-der.jpeg" alt="Detalle manos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" />
-        
-        {/* CAMBIO 2: Overlay MUCHO MÁS CLARO solo para esta foto (bg-stone-900/10) */}
-        <div class="absolute inset-0 bg-stone-900/10 group-hover:bg-stone-900/30 transition-colors duration-500"></div>
-        
-        {/* CAMBIO 1: Alineación ABAJO */}
-        <div class="absolute inset-0 flex items-end justify-center pb-4 md:pb-6 pointer-events-none">
-          <span class="date-number">26</span>
-        </div>
-      </div>
-
+      {hero?.gallery?.map((item, index) => {
+        const isThird = index === 2;
+        const overlayBase = isThird ? "bg-stone-900/10" : "bg-stone-900/30";
+        const overlayHover = isThird ? "group-hover:bg-stone-900/30" : "group-hover:bg-stone-900/40";
+        return (
+          <div class="relative overflow-hidden aspect-[3/4] group rounded-xl md:rounded-2xl shadow-md">
+            <img
+              src={item?.imageSrc}
+              alt={item?.alt}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+            />
+            <div class={`absolute inset-0 ${overlayBase} ${overlayHover} transition-colors duration-500`}></div>
+            <div class="absolute inset-0 flex items-end justify-center pb-4 md:pb-6 pointer-events-none">
+              <span class="date-number">{item?.dateNumber}</span>
+            </div>
+          </div>
+        );
+      })}
     </div>
   </div>
 
@@ -63,7 +56,7 @@
     class="text-5xl sm:text-7xl text-stone-800 mb-8 md:mb-10 text-center animate-fade-in-up"
     style="font-family: 'Great Vibes', cursive;"
   >
-    Paula & Ronaldo
+    {hero?.names}
   </h1>
 
   {/* 4. TEXTO INFERIOR */}
@@ -72,7 +65,7 @@
       class="text-lg md:text-xl text-stone-500 italic leading-relaxed font-light"
       style="font-family: 'Playfair Display', serif;"
     >
-      "Estamos muy felices de compartir este momento especial con ustedes. Acompáñanos en la celebración de nuestro amor."
+      {hero?.bottomText}
     </p>
   </div>
 
