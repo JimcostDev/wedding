@@ -4,7 +4,7 @@
     "defaultProps": {
       "title": "You're My Penguin",
       "description": "Acompáñanos en la celebración de nuestra boda. Aquí encontrarás toda la información importante sobre el evento, ubicación, itinerario y podrás confirmar tu asistencia.",
-      "canonical": "https://ourwedding.jimcostdev.com",
+      "canonical": "https://alexa-jois.vercel.app",
       "ogImage": "/banner-boda.jpeg"
     },
     "pageTitle": {
