@@ -5,17 +5,17 @@
       "title": "You're My Penguin",
       "description": "Acompáñanos en la celebración de nuestra boda. Aquí encontrarás toda la información importante sobre el evento, ubicación, itinerario y podrás confirmar tu asistencia.",
       "canonical": "https://ourwedding.jimcostdev.com",
-      "ogImage": "https://ourwedding.jimcostdev.com/banner-boda.jpg"
+      "ogImage": "/banner-boda.jpeg"
     },
     "pageTitle": {
-      "template": "${title}: Paula ❤️ Ronaldo",
-      "suffix": "Paula ❤️ Ronaldo"
+      "template": "${title}: Alexandra ❤️ Jois",
+      "suffix": "Alexandra ❤️ Jois"
     },
     "meta": {
       "robots": "index, follow",
       "languageMeta": "Spanish",
       "ogLocale": "es_ES",
-      "ogSiteName": "Paula & Ronaldo",
+      "ogSiteName": "Alexandra & Jois",
       "favicon": {
         "type": "image/webp",
         "src": "/you-are-my-penguin.png",
@@ -26,38 +26,33 @@
     "schemaOrg": {
       "@context": "https://schema.org",
       "@type": "SocialEvent",
-      "name": "Boda Paula & Ronaldo",
-      "description": "Celebración de la boda de Paula y Ronaldo en Quinta Lacy",
+      "name": "Boda Alexandra & Jois",
+      "description": "Celebración de la boda de Alexandra y Jois en la Iglesia Adventista de Inca",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "startDate": "2026-10-03T18:30:00+02:00",
-      "endDate": "2026-10-04T02:00:00+02:00",
+      "startDate": "2026-05-17T10:00:00+02:00",
+      "endDate": "2026-05-17T23:59:00+02:00",
       "location": {
         "@type": "Place",
-        "name": "Quinta Lacy",
+        "name": "Iglesia Adventista de Inca",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Av. San Luis de Cuba, 1",
-          "addressLocality": "Elda",
-          "addressRegion": "Alicante",
-          "postalCode": "03600",
+          "streetAddress": "Carrer Castell de Bellver, 5",
+          "addressLocality": "Inca",
+          "addressRegion": "Illes Balears",
+          "postalCode": "07300",
           "addressCountry": "ES"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 38.45358342550134,
-          "longitude": -0.8110992711639404
         }
       },
-      "image": "https://ourwedding.jimcostdev.com/banner-boda.jpg",
+      "image": "/banner-boda.jpeg",
       "organizer": [
         {
           "@type": "Person",
-          "name": "Paula"
+          "name": "Alexandra"
         },
         {
           "@type": "Person",
-          "name": "Ronaldo"
+          "name": "Jois"
         }
       ]
     }
@@ -69,26 +64,26 @@
     "topText": "Nos Casamos",
     "gallery": [
       {
-        "imageSrc": "/foto-izq.jpg",
-        "alt": "Paula y Ronaldo beso",
-        "dateNumber": "03"
+        "imageSrc": "/foto-izq.jpeg",
+        "alt": "foto-izq",
+        "dateNumber": "17"
       },
       {
         "imageSrc": "/foto-centro.jpeg",
-        "alt": "Manos entrelazadas",
-        "dateNumber": "10"
+        "alt": "foto-centro",
+        "dateNumber": "05"
       },
       {
         "imageSrc": "/foto-der.jpeg",
-        "alt": "Detalle manos",
+        "alt": "Doto-der",
         "dateNumber": "26"
       }
     ],
-    "names": "Paula & Ronaldo",
+    "names": "Alexandra & Jois",
     "bottomText": "\"Estamos muy felices de compartir este momento especial con ustedes. Acompáñanos en la celebración de nuestro amor.\""
   },
   "countdown": {
-    "weddingDate": "2026-10-03T18:30:00+02:00",
+    "weddingDate": "2026-05-17T10:00:00+02:00",
     "title": "La Cuenta Atrás",
     "heading": "¡Ya falta menos!",
     "blocks": [
@@ -97,23 +92,23 @@
       { "label": "Minutos", "delayMs": 200 },
       { "label": "Segundos", "delayMs": 300 }
     ],
-    "footerMessage": "\"Nos vemos en los jardines de Quinta Lacy\""
+    "footerMessage": "\"Nos vemos en la Iglesia Adventista de Inca\""
   },
   "location": {
     "title": "Lugar de la Celebración",
-    "mapEmbedUrl": "https://maps.google.com/maps?q=Quinta+Lacy+Av.+San+Luis+de+Cuba+1+Elda&t=&z=15&ie=UTF8&iwloc=&output=embed",
-    "name": "Quinta Lacy, Alicante",
-    "address": "Av. San Luis de Cuba, 1, 03600 Elda",
-    "description": "Celebraremos nuestro gran día en este precioso entorno rodeado de jardines.",
-    "mapsUrl": "https://maps.app.goo.gl/DztKWzdMA8BokJAo6",
+    "mapEmbedUrl": "https://maps.google.com/maps?q=Carrer+Castell+de+Bellver,+5,+07300+Inca,+Illes+Balears&t=&z=15&ie=UTF8&iwloc=&output=embed",
+    "name": "Iglesia Adventista de Inca",
+    "address": "Carrer Castell de Bellver, 5, 07300 Inca, Illes Balears",
+    "description": "Celebraremos nuestro gran día en la Iglesia Adventista de Inca.",
+    "mapsUrl": "https://google.com/maps?gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABiABBiiBDIHCAIQABjvBTIKCAMQABiABBiiBDIKCAQQABiABBiiBNIBCTE2MDIyajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=es&sa=X&geocode=KRF0Tba1xZcSMWOsR9c5M8Ni&daddr=Carrer+Castell+de+Bellver,+5,+07300+Inca,+Illes+Balears",
     "howToArriveLabel": "¿Cómo llegar?",
     "labels": {
       "schedule": "Horario",
       "type": "Tipo"
     },
     "values": {
-      "schedule": "18:30 h",
-      "type": "Recepción"
+      "schedule": "10:00 h",
+      "type": "Ceremonia"
     },
     "ctaText": "Abrir en Google Maps",
     "iframe": {
@@ -122,38 +117,26 @@
     }
   },
   "itinerary": {
-    "title": "Itinerario del Día",
+    "title": "Itinerario del día.",
     "subtitle": "\"Cada momento cuenta en nuestra historia\"",
     "events": [
       {
-        "hora": "18:30",
+        "hora": "09:30",
         "titulo": "Recepción",
         "descripcion": "Llegada de invitados",
         "iconHtml": "<span class=\"icon-[radix-icons--people] w-6 h-6\"></span>"
       },
       {
-        "hora": "19:00",
+        "hora": "10:00",
         "titulo": "Ceremonia",
         "descripcion": "¡El sí, quiero!",
         "iconHtml": "<span class=\"icon-[hugeicons--wedding] w-6 h-6\"></span>"
       },
       {
-        "hora": "20:00",
-        "titulo": "Cóctel",
-        "descripcion": "Aperitivos",
-        "iconHtml": "<span class=\"icon-[mynaui--cocktail] w-6 h-6\"></span>"
-      },
-      {
-        "hora": "21:00",
-        "titulo": "Cena",
+        "hora": "13:30",
+        "titulo": "Almuerzo",
         "descripcion": "Banquete nupcial",
         "iconHtml": "<span class=\"icon-[lineicons--dinner] w-6 h-6\"></span>"
-      },
-      {
-        "hora": "22:30",
-        "titulo": "Fiesta",
-        "descripcion": "Celebración",
-        "iconHtml": "<span class=\"icon-[hugeicons--party] w-6 h-6\"></span>"
       }
     ],
     "note": "Nota: Los horarios son aproximados"
@@ -163,66 +146,43 @@
     "subtitle": "Nos encantaría contar contigo en nuestro gran día",
     "confirmButton": {
       "text": "Confirmar Asistencia",
-      "url": "https://docs.google.com/forms/d/e/1FAIpQLSeWJJdj1HpJEBYtkPW618ULOP7FLtO4_GnZ-rNaZlEarWWbyA/viewform?usp=header"
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSdcWdGRUa92E6QNZKclDYYWBQNcv-HOdiHPMJffe03M9qp10w/viewform?usp=header"
     },
     "deadline": {
       "prefix": "Confirma antes del ",
-      "dateBold": "01 de Septiembre"
+      "dateBold": "01 de Mayo"
     },
     "noteText": ""
   },
   "gifts": {
-    "title": "Regalo de Bodas",
-    "subtitle": "Tu presencia es el mejor regalo, pero si deseas contribuir:",
-    "bizum": {
-      "title": "Bizum",
-      "copyText": "Copiar",
-      "toRonaldoLabel": "Para Ronaldo",
-      "toRonaldoValue": "624499125",
-      "toPaulaLabel": "Para Paula",
-      "toPaulaValue": "644774435"
-    },
-    "transfer": {
-      "title": "Transferencia",
-      "label": "Número de cuenta (IBAN)",
-      "ibanValue": "ES27 0049 3978 6828 1415 7212",
-      "copyText": "Copiar"
-    },
-    "notes": {
-      "label": "Nota:",
-      "text": "Si prefieres, puedes realizar el regalo en efectivo el día de la boda."
-    },
-    "copyUi": {
-      "successText": "✅ ¡Listo!",
-      "errorAlertText": "Error al copiar, por favor selecciona manualmente"
-    }
+    "enabled": false
   },
   "footer": {
     "names": {
-      "left": "Paula",
-      "right": "Ronaldo"
+      "left": "Alexandra",
+      "right": "Jois"
     },
-    "dateLine": "03 . Octubre . 2026",
-    "placeLine": "Quinta Lacy, Alicante",
+    "dateLine": "17 . Mayo . 2026",
+    "placeLine": "Iglesia Adventista de Inca",
     "thanksMessage": "\"Gracias por formar parte de nuestra historia y acompañarnos en este día tan especial.\"",
     "bibleQuote": {
       "quote": "“Más valen dos que uno, porque obtienen más fruto de su esfuerzo... y una cuerda de tres hilos no se rompe fácilmente.”",
       "cite": "— Eclesiastés 4:9-12 —"
     },
-    "copyright": "© 2026 Paula & Ronaldo. Todos los derechos reservados.",
+    "copyright": "© 2026 Alexandra & Jois. Todos los derechos reservados.",
     "madeWith": "Hecho con 💚 para nuestro gran día"
   },
   "assets": {
     "publicImages": {
-      "fotoIzq": "/foto-izq.jpg",
+      "fotoIzq": "/foto-izq.jpeg",
       "fotoCentro": "/foto-centro.jpeg",
       "fotoDer": "/foto-der.jpeg",
-      "bannerBoda": "/banner-boda.jpg"
+      "bannerBoda": "/banner-boda.jpeg"
     }
   },
   "uiStrings": {
     "countdown": {
-      "lowerMessage": "\"Nos vemos en los jardines de Quinta Lacy\""
+      "lowerMessage": "\"Nos vemos en la Iglesia Adventista de Inca\""
     }
   }
 }

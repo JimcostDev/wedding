@@ -39,7 +39,7 @@ const { hero } = Astro.props;
             <img
               src={item?.imageSrc}
               alt={item?.alt}
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+              class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-1000 ease-out"
             />
             <div class={`absolute inset-0 ${overlayBase} ${overlayHover} transition-colors duration-500`}></div>
             <div class="absolute inset-0 flex items-end justify-center pb-4 md:pb-6 pointer-events-none">
