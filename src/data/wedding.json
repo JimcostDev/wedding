@@ -107,7 +107,7 @@
       "type": "Tipo"
     },
     "values": {
-      "schedule": "10:00 h",
+      "schedule": "11:00 h",
       "type": "Ceremonia"
     },
     "ctaText": "Abrir en Google Maps",
@@ -121,7 +121,7 @@
     "subtitle": "\"Cada momento cuenta en nuestra historia\"",
     "events": [
       {
-        "hora": "09:30",
+        "hora": "10:30",
         "titulo": "Recepción",
         "descripcion": "Llegada de invitados",
         "iconHtml": "<span class=\"icon-[radix-icons--people] w-6 h-6\"></span>"
